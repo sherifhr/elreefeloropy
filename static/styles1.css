@@ -1,0 +1,161 @@
+	#imagenFondo {
+    position: absolute;
+    border: 1px solid blue;
+    height: 35%;
+    width: 25%;
+    top: 45%;
+    left: 10%;
+}
+
+#mainDropdown{
+  color:black;
+  width:35%;
+  height:0.9cm;
+  padding: 1px;
+  font-family: Thabit;
+  font-weight: 700;
+}
+
+#subDropdown{
+  color:black;
+  width:35%;
+  height:0.9cm;
+  padding: 1px;
+  font-family: Thabit;
+  font-weight:700;
+}
+#image_path{
+width: 25%;
+color: transparent;
+}
+/*
+#imagenFondo {
+    position: absolute;
+    border: 1px solid blue;
+    height: 35%;
+    width: 25%;
+    top: 45%;
+    left: 10%;
+} */
+.btn1{
+          width:100%;
+          height:1.3cm;
+          font-size: 22px;
+          font-family: Thabit;
+          background-color: darkblue;
+          font-weight: 700;
+          padding: 1px;
+          border-color:transparent;
+          color:white;
+          background-color: darkblue;
+          text-align: center;
+          }
+
+        h4 {
+            color: white;
+            background-color: darkblue;
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            text-align: center;
+            width:100%;
+             }
+
+        button {
+            width: 33%;
+            margin-right: 33%;
+            height: 1cm;
+            padding: 1px;
+            background-color:darkgreen;
+            border: none;
+            border-radius: 13px;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+            cursor: pointer;
+            text-align:center;
+        }
+        button:hover {
+            background-color: red;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+         }
+        #myName{
+          width:100%;
+          border-radius: 10px;
+          margin-bottom: 1mm;
+          color:blue;
+          font-weight: 700;
+          font-family: Thabit;
+
+        }
+        #phone{
+          width:100%;
+          color:blue;
+          font-weight: 700;
+          border-radius: 10px;
+          margin-bottom: 1mm;
+          font-family: Thabit;
+        }
+        #email{
+          width:100%;
+          border-radius: 10px;
+          margin-bottom: 1mm;
+          font-family: Thabit;
+          font-weight: 700;
+        }
+        #myPassword{
+          width:100%;
+          border-radius: 10px;
+          font-family: Thabit;
+          font-weight: 700;
+        }
+        #selectInput{
+          width:100%;
+          color: white;
+          background-color: black;
+          border-radius: 15px;
+          font-weight: 700;
+          padding: 1px;
+          font-family: Thabit;
+          margin-bottom: 5mm;
+        }
+
+        #selectInput:hover{
+          color: white;
+          background-color: darkgreen;
+        }
+
+        #submitButton{
+          background-color: orange;
+          color:white;
+          font-family: 'Times New Roman', Times, serif;
+          font-weight: 700;
+          font-size: 20px;
+          border-radius: 13px;
+          height: .9cm;
+          padding: 1px;
+          margin-right: 27%;
+        }
+        #submitButton:hover{
+          color:black;
+
+        }
+         p{
+          color:black;
+          font-family: 'Times New Roman', Times, serif;
+          text-align: left;
+          font-size: 22px;
+          font-weight: 900;
+         }
+
+   .fa{
+    color:darkblue;
+    background-color: yellow;
+   }

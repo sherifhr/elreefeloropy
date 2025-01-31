@@ -1,0 +1,106 @@
+
+@import url("http://www.fontstatic.com/f=jazeera,jazeera-light");
+@font-face {
+    font-family: 'Thabit';
+    src: url('fonts/Thabit.woff2') format('woff2'),
+         url('fonts/Thabit.woff') format('woff'),
+         url('fonts/Thabit.ttf') format('truetype'); /* Adjust paths as necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.cdnfonts.com/css/thabit');
+
+.image-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    margin-right: 10%;
+    transform: translate(-50%, -50%);
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+/*
+  html{
+      height: 100%;
+       margin: 0;
+       font-family: Thabit;
+  }
+
+  body {
+    height: 100%;
+     margin: 0;
+     font-family: Thabit;
+} */
+
+  .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      text-align: right;
+      font-family: Thabit;
+  }
+
+  main {
+      flex: 1; /* This makes the main section take up available space */
+  }
+
+  footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      /* padding: 10px; */
+      /* position:fixed; */
+  }
+  h4{
+      color:blue;
+      /* text-decoration: underline; */
+  }
+  .logo-container {
+      text-align: center; /* Center the logo horizontally */
+      margin-top: 20px; /* Add some space from the top */
+  }
+  .header{text-align: center;
+        color:white;
+        font-weight: 900;
+        background-color:gray;
+        margin-top: 1mm;
+        border-radius: 30px;
+        padding: 10px;
+}
+.pagination{
+  color:blue;
+  font-weight: 900;
+  text-align: center;
+}
+  .btn{
+    width:10%;
+    color:white;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 15%;
+    border-color: darkgreen;
+}
+
+.btn:hover{
+    background-color:red;
+   }
+
+   li{
+    font-family: Thabit;
+    color:black;
+   }

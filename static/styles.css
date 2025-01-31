@@ -1,0 +1,932 @@
+@import url("http://www.fontstatic.com/f=jazeera,jazeera-light");
+@import url('https://fonts.cdnfonts.com/css/thabit');
+
+
+.whatsapp-button {
+  background-color: #25D366; /* WhatsApp color */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 900;
+  border-radius: 25px;
+
+}
+
+.col-md-4 img{
+    width:30%;
+    height:auto;
+  }
+
+  .ol-li{
+    text-align: right;
+  }
+
+  @font-face {
+    font-family: 'Thabit';
+    src: url('fonts/Thabit.woff2') format('woff2'),
+         url('fonts/Thabit.woff') format('woff'),
+         url('fonts/Thabit.ttf') format('truetype'); /* Adjust paths as necessary */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body2 {
+    font-family: 'Thabit', sans-serif; /* Fallback to a generic font */
+    direction: rtl;
+}
+
+.home-button {
+   background-color: green;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+
+  }
+
+ .home-button:hover {
+   color: gold;
+  }
+
+.update-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 15px;
+  font-weight: 700;
+  }
+ .update-button:hover {
+    background-color: red;
+    color: white;
+     }
+
+     .save-button {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: none;
+      border-radius: 15px;
+      font-weight: 700;
+      }
+
+  .save-button:hover {
+        background-color: red;
+        color: white;
+         }
+
+  .PO-button {
+    background-color: blue;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    }
+
+  .PO-button:hover {
+    color: gold;
+   }
+
+  .products-button {
+      background-color: rgb(31, 20, 30);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+  }
+
+  .products-button:hover {
+      color: gold;
+  }
+
+ .list-button {
+   background-color:blueviolet;
+   color: white;
+   padding: 10px 20px;
+   text-decoration: none;
+   border: none;
+   border-radius: 5px;
+   font-weight: bold;
+ }
+
+ #search{
+  color:black;
+
+ }
+/*
+ body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+} */
+.search-icon {
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 10px;
+  color: #007bff; /* Optional: Change color */
+}
+
+select {
+      background-color:white;
+      color: black;
+      font-weight: 500;
+      padding: 10px; /* Padding for better spacing */
+      /* border: 1mm solid #ccc; /* Border styling */
+      border-color: blue;
+      border-radius: 0px; /* Rounded corners */
+      font-size: 16px; /* Font size */
+      text-align: center;
+      margin-top: 3mm;
+      padding: .5em 1em;
+      font-size: 1em;
+      margin-top: 10px;
+
+      height: .8cm;
+      width: 30%;           /* Full width */
+      padding: 10px;        /* Adequate padding */
+      font-size: 16px;      /* Font size */
+      height:0.8cm;
+      box-sizing: border-box; /* Include padding in width */
+    }
+
+
+  select:focus {
+      background-color: white; /* Slightly darker background on focus */
+      color:black;
+      border-color: #b8c29d; /* Change border color on focus */
+  }
+  .custom-A{
+    max-width: 100%;
+    color:white;
+  }
+
+  input[type="submit"] {
+
+   font-size: large;
+   /* color:white; */
+
+   font-weight: 700;
+   font-family: 'Times New Roman', Times, serif;
+   border:transparent;
+   background-color:rgb(150, 138, 192);
+   border-radius: 20px;
+    }
+
+  input[type="submit"]:hover {
+   color: red;
+   font-weight: 700;
+
+    }
+
+  input[type="file"] {
+      font-size:medium;
+      color: blue;
+    }
+ .signup-button {
+      background-color:lightgrey;
+      color: blueviolet;
+      width:50px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      font-family: 'Times New Roman', Times, serif;
+      text-decoration: none;
+ }
+ .signup-button:hover {
+      color: red;
+ }
+
+ .name-button{
+    width:250px;
+    background-color:grey ;
+    color: white;
+    border:navy;
+    font-weight: bold;
+    height: .8cm;
+ }
+
+ .email-button{
+    width:250px;
+    background-color:grey ;
+    color: white;
+    border:navy;
+    font-weight: bold;
+    height: .8cm;
+ }
+
+ .DB-button {
+    background-color:darkorange ;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+ }
+
+ .DB-button:hover {
+    background-color:blue ;
+    color: gold;
+ }
+ .title-button {
+    background-color:blue ;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+ }
+
+h1{
+   font-size: larger;
+   font-family: 'Thabit';
+   text-align: center;
+   color: gold;
+   font-weight: 900;
+   background-color: rgb(38, 0, 100);
+}
+
+h2{
+   font-size: large;
+   color: blue;
+   font-family: 'Thabit';
+   font-weight: 900;
+   text-align: left;
+   text-align: center;
+
+}
+
+h3{
+    font-size: larger;
+    text-align: center;
+    background-color:black;
+    color: gold;
+    font-family: Thabit;
+   }
+
+h3g{
+    font-size: larger;
+    text-align: center;
+    background-color:darkgreen;
+    color: gold;
+    font-family: Thabit;
+   }
+
+h4{
+    font-family: Thabit;
+    /*text-align: left;*/
+    color: rgb(2, 2, 29);
+    text-align: center;
+   }
+
+h5,h6{
+    color: black;
+    font-family: 'Thabit';
+    text-align: center;
+  }
+
+.nav-link{
+      color:black;
+   }
+
+.nav-link:hover{
+      color:red;}
+
+td, th  {
+    text-align: right;
+    font-size: medium ;
+    font-family: 'Thabit';
+}
+
+thead{
+    color:white;
+    background-color: black;
+    font-size: 18px;
+    font-weight:900;
+    text-align:right;
+    height:fit-content;
+}
+
+.dropdown {
+  position:fixed;
+  display: inline-block;
+  text-align: right;
+}
+
+.dropdown-item:hover{
+   color: red;
+   background-color: blue;
+   color: rgb(111, 0, 255); /* Color on hover */
+  }
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   min-width: 160px;
+   margin-top: 8px;
+   text-align: right;
+   display: block;
+   color: blue;
+}
+
+.dropdown-content a {
+   text-align: right;
+   display: block;
+   padding: 8px 16px;
+   text-decoration: none;
+   }
+
+.dropdown-content a:hover {
+   background-color:rgb(79, 47, 221);
+   color: #ff0000;
+   }
+
+form {
+  direction: rtl;
+  text-align: right;
+  }
+
+form select{
+   width:23%;
+   /* width:74%;  */
+   height:1cm;
+   text-align: center;
+}
+
+.btn-group{
+  padding-left:1cm;
+}
+  form-l {
+   direction: ltr;
+   text-align: left;
+ }
+
+ label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#address1{
+  width: 19%;
+  height: .9cm;
+  color:rgb(10, 10, 10);
+  font-weight: 700;
+  background-color: rgb(235, 186, 186);
+}
+#address2{
+
+  width: 19%;
+  height: .9cm;
+  color:rgb(10, 10, 10);
+  font-weight: 700;
+  background-color: rgb(247, 232, 232);
+}
+
+#myInput-price {
+   width: 10px;
+   color:blue;
+   background-color: white;
+}
+
+#package{
+   width: 70px;
+   text-align: center;
+   color:blue;
+   background-color: whitesmoke;
+}
+
+.radio-button{
+  margin-right: 0cm;
+  color:black;
+}
+
+#unit_price {
+   width: 70px;
+   height: 30px;
+   text-align: center;
+   /* color:blue;
+   background-color: whitesmoke; */
+}
+#quantity {
+   width: 50px;
+   height: 30px;
+   text-align: left;
+   color:blue;
+   background-color: whitesmoke;
+   }
+  #stock {
+   width: 70px;
+   height: 30px;
+   text-align: center;
+   color:blue;
+   background-color: whitesmoke;
+      }
+
+  #result{
+   text-align: center;
+   font: bolder;
+   height:.8cm;
+   width: 100%;
+   color:white;
+   background-color: blue;
+ }
+
+  #save {
+   width: 15px;
+   height: 30px;
+   color:black;
+   background-color: white;
+  }
+
+  #u-price {
+    background-color: orange;
+    text-align: center;
+  }
+
+  #prod_name {
+   width:300px;
+   text-align: center;
+   background-color: whitesmoke;
+}
+
+  #farm{
+   width:200px;
+   color: blue;
+   background-color: whitesmoke;
+   text-align: center;
+   border-color: black;
+   }
+
+  #name{
+   width:200px;
+   color: black;
+   background-color:white;
+   text-align: center;
+   }
+
+  #myName{
+    color: blue;
+    }
+
+  #myPassword{
+      color: blue;
+            }
+
+  #myName:hover{
+      color: black;
+      background-color: rgb(160, 240, 128);
+      }
+
+  #myPassword:hover{
+        color: black;
+        background-color: rgb(160, 240, 128);
+              }
+
+  #phone{
+      width:20%;
+      color: black;
+      background-color:white;
+      text-align:center;
+      }
+  #phone:hover{
+      color: blue;
+      background-color: lightblue;
+       }
+
+  #address{
+    width:40%;
+  }
+
+  #email{
+      width:200px;
+      color: black;
+      background-color:white;
+      text-align:center;
+      }
+  #email:hover{
+         color: blue;
+         background-color: lightblue;
+          }
+
+  #password{
+      width:200px;
+      color:black;
+      background-color:white;
+      text-align: center;
+
+         }
+  #password:hover{
+      color:blue;
+      background-color: lightblue;
+         }
+
+  #mail{
+      width:200px;
+      color: black;
+      background-color: white;
+      text-align: center;
+
+      }
+  #link1{
+    color:white;
+    font-size: x-large;
+    font-family: Thabit;
+  }
+
+  #link1:hover{
+    color:blue;
+  }
+  .card {
+    color: black; /* Initial color */
+    text-align: center;
+    padding-left: 5px;
+    border: 2px solid grey;
+
+    }
+
+    .card-img{
+      text-decoration: double;
+      width:80%;
+      height:10%;
+      }
+
+  .card-body {
+      color: black; /* Initial color */
+      text-align: center;
+      border: transparent;
+      width: 100%;
+      height:99%;
+      }
+/* test */
+      .card-body ul{
+        color: blue;
+        text-align: right;
+        }
+
+  .card-title{
+      /*direction: rtl;*/
+      text-align: centre;
+      color:black;
+      font-weight: bolder;
+      /*height:30%;*/
+      }
+
+  .custom-icon-rd{
+        font-size:24px;
+        color:red";
+       }
+  .custom-icon-bl{
+        font-size:24px;
+        color:green";
+       }
+
+      .card-subtitle{
+   /*direction: rtl;*/
+   text-align: centre;
+  }
+
+
+.card-text{
+ direction: rtl;
+ text-align: right;
+}
+.card:hover {
+ color: orangered; /* Color on hover */
+}
+
+.container {
+   color:blue;
+   margin-top:1px ;
+   margin-bottom:10px ;
+   text-align: right;
+   padding-top: 15px;
+   padding-left: 1px;
+   padding-bottom: 10px;
+   padding-top: 20px;
+   width:100%;
+   align-items: end;
+   background-color:rgb(235, 213, 213);
+}
+
+.container-A{
+  /* position: fixed; */
+  direction: rtl;
+  border-radius: 5px;
+  background-color:rgb(38,0,100);
+  width:100%;
+  color:blue;
+  padding:2px ;
+  text-align: right;
+  margin-top: 1%;
+  margin-left: 1%;
+  margin-right: 2%;
+    }
+
+.containerLog {
+  align-items:center;
+  background-color: lightgrey;
+  padding: 10px;
+  float:none;
+  width:30%;
+  text-align:center;
+     }
+
+.container1{
+  width:29cm;
+  color:blue;
+  text-align: right;
+  background-color: lightpink;
+
+}
+.container1 select{
+  width:30%;
+  color: aliceblue;
+  background-color:grey;
+  /* color:blue; */
+  text-align: right;
+
+}
+
+.container-l {
+   background-color:white;
+   color:blue;
+   margin-right: 20px;
+   margin-left: 10px;
+   margin-top: 10px;
+   text-align:left;
+   padding-top:10px;
+   padding-left:20px;
+   padding-bottom:10px;
+}
+
+.container-price{
+      display:inline-flex
+  }
+
+.container2 a {
+color: blue;
+display: inline;
+background-color:white;
+}
+.card-title1{
+ color: white;
+ font-weight: 900;
+ font-size: x-large;
+ font-family: Thabit;
+ padding: 10px;
+ text-align: center;
+ background-color:blue;
+}
+.card-title2{
+ color: white;
+ font-weight: 700;
+ font-family:Thabit;
+ text-align: center;
+ padding: 10px;
+ background-color:gray;
+}
+ img{
+   padding-top: 10px;
+   padding-bottom: 10px;
+   width: 100%;
+   height:auto;
+
+ }
+ .button-container {
+   display: flex;
+   justify-content:space-between;
+
+ }
+ .button-container select {
+width:20%;
+ }
+
+ .left-buttons {
+   display:flex;
+   justify-content:left;
+ }
+
+ .right-buttons {
+   display:flex ;
+   justify-content:right;
+
+ }
+.link-box {
+ color:black;
+ width: 10%;
+ border-radius: 15PX;
+ background-color: blue;
+ font-weight: bolder;
+ font-style: normal;
+ font-size: x-large;
+ display: inline-block;
+}
+
+p{
+ text-align: center;
+}
+.footer {
+   font-size: small;
+    text-align: center;
+    color: darkviolet;
+    position:fixed ;
+    bottom: 5px;
+    width: 100%;
+    height: 30px;
+   }
+
+	text{
+		size: 14px;
+		color: blue;
+	}
+  .form-container select{
+		text-align: center;
+      	}
+
+  .container input {
+	  	width:100px;
+	 	  color: blue;
+      padding : 0px;
+      margin-bottom: 2px;
+		  text-align:center;
+      		}
+
+  .container-1{
+	display:inline;
+		}
+
+  .image-container {
+    display: flex;
+    object-fit: contain;
+    object-position: center;
+    display: flex;
+    object-fit: contain;
+    object-position: center;
+    /* width:30%;
+    height:30%; */
+
+  }
+
+  .image-frame {
+    flex:1;
+    display:inline;
+    justify-content:space-evenly;
+    flex:1;
+    display:inline;
+    justify-content:space-evenly;
+
+     }
+
+  .image-frame img {
+    display:inline;
+    width:auto;
+    height: auto;
+    border-radius: 100%;
+    overflow: hidden;
+     }
+
+  .grid{
+      display: contents;
+      display: grid;
+      grid-gap: 5px;
+
+      display: contents;
+      display: grid;
+      grid-gap: 5px;
+
+  }
+
+  .grid-container {
+      display: grid;
+      /*grid-template-columns: 1fr 2fr 1fr; /* Adjust the number of columns as needed */
+      grid-gap: 3px; /* Adjust the gap between grid items as needed */
+      }
+
+  .grid-item {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      color: rgba(5, 48, 15, 0.84);
+      font-weight: bolder;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      margin-top:20px;
+      border: transparent;
+      padding:1px;
+
+    }
+
+  .grid-1 {
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 1px;
+      text-align:justify;
+    }
+
+  .grid-2 {
+      display:grid;
+      grid-template-columns: repeat(3, 1fr); /* Adjust the nber of columns as needed */
+      grid-gap: 1px; /* Adjust the gap between grid items */
+      text-align: center;
+}
+/* -----------------------------------------------*/
+
+.grid-item-1 {
+      grid-column: 1;
+      width: 100%;
+      font-size:small;
+      padding: 0px;
+      text-align: right;
+}
+
+.grid-item-2 {
+      grid-column: 2;
+      width:100%;
+
+}
+.grid-item-3 {
+      grid-column: 3;
+      width:100%;
+      text-align: center;
+  }
+      .image-frame {
+        flex:1;
+        display:inline;
+        justify-content:space-evenly;
+        }
+
+      .image-frame img {
+        display:inline;
+        width: 100%;
+        max-width:100%;
+        height: auto;
+        overflow: hidden;
+
+        }
+
+      .grid{
+            display: contents;
+            display: grid;
+            grid-gap: 5px;
+        }
+      .grid-container {
+            display: grid;
+            /*grid-template-columns: 1fr 2fr 1fr; /* Adjust the number of columns as needed */
+            grid-gap: 3px; /* Adjust the gap between grid items as needed */
+            }
+
+      h1,h2,h3,h4,h5,h6{
+                font-family: 'Thabit';
+            }
+      h1{
+        font-family: 'Thabit';
+        font-style:normal;
+        text-align: center;
+        font-weight: 900;
+        color:yellow;
+        background-color: rgb(38, 0, 100);
+         }
+
+      .dropdown-item:hover{
+        color: rgb(111, 0, 255); /* Color on hover */
+       }
+        #prod{
+          font-family: Thabit;
+          font-weight: 900;
+          font-size: 22px;
+          padding: 5px;
+          padding-bottom: 5px;
+          padding-top: 0;
+        }
+        #activity{
+          width:90%;
+          color:blue;
+          padding: 1px;
+          font-weight:900;
+          font-family: Thabit;
+          background-color: orange;
+          font-size: 20px;
+        }
+        * {
+          box-sizing: border-box;
+        }
+
+        #btn1{
+          font-size:smaller;
+          border-radius: 20%;
+          width:15%;
+          color:white;
+          font-weight:900;
+      }
