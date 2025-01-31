@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ElreefEloroby- All Stores List</title>
+
+<style>
+  .image-container{
+    width:100%;
+    height:50px;
+  }
+  #title1 {
+    width:100%;
+    font-family: Thabit;
+    font-weight: 900;
+    margin-top: .3cm;
+    margin-bottom: .5cm;
+    }
+    .text-center{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+</style>
+<body>
+  {% extends "home.html" %}
+  {% block content%}
+    <div class="container">
+      <a href="{{url_for('index')}}" class="home-button"> Home page </a>
+      <br><br>
+      <h5>Welcom...Customer </h5>
+      <div class="image_container">
+      <img src="/static/images/Logo1.png" style="width:50%; height:50%;">
+      <img src="/static/images/Logo1.png" style="width:50%; height:70%;">
+      <img src="/static/images/Logo1.png" style="width:50%; height:70%;">
+      <img src="/static/images/Logo1.png" style="width:50%; height:70%;">
+      <img src="/static/images/Logo1.png" style="width:100%; height:70%;">
+     
+    
+    
+    </div>
+      {% endblock %}
+  </body>
+</html>
