@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<head>
+	<title>Elreef Eloroby-Add Stores/Shops</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+   </script>
+
+<style>
+	input[type="text"] {
+	    width: 15cm;
+      	height: .8cm;
+		text-align: right;
+		color:black;
+		background-color:white;
+    }
+
+	.custom-file-upload {
+    	display: inline-block;
+    	padding: 10px 20px;
+    	cursor: pointer;
+    	background-color: #4CAF50; /* Change this color */
+     	color: white; /* Change text color */
+     	border-radius: 5px;
+    	border: none;
+		margin-top: 2mm;
+      }
+	.custom-file-upload input {
+    	display: none; /* Hide the default file input */
+    }
+ 	#imagenFondo {
+		position:absolute;
+  		border: 1px solid blue;
+  		margin-top: 2%;
+		margin-left: 25%;
+		margin-right:30%;
+		max-width: 100%;
+		height: 45%;
+		width: 25%;
+		top: 65%;
+		left: 1%;
+  }
+  #T1{
+	width:10%;
+	margin-bottom: 1mm;
+	  }
+  #T2{
+	width:10%;
+	margin-bottom: 1mm;
+	height: 10mm;
+  }
+#address{
+	width:20%;
+}
+  #rooms{
+	width:5%;
+  }
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    }
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    }
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+        }
+
+		#selectInput{
+			width:10%;
+			height: 9mm;
+			border-color: transparent;
+			font-family: Thabit;
+			padding:2px;
+		}
+</style>
+
+</head>
+<body dir="rtl">
+  	{% extends "home.html" %}
+  	{% block content%}
+	  <div class="container">
+<div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+		 <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >لوحه المستخدم</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}
+	</div>
+	<div class="container">
+		{% with messages = get_flashed_messages() %}
+    		{% if messages %}
+				<div class="alert alert-success">
+					{{ messages[0] }}
+				</div>
+			{% endif %}
+		{% endwith %}
+		<h4>*** إضافه فيلا/شاليه إيجار يومى ***</h3>
+		<form  method="POST"  action="/save_house"   enctype="multipart/form-data">
+			<DIV class="container">
+				<button type="button" class="btn btn-dark btn-sm" id="T1">قيمه الإيجار</button>
+				<input type="number"  name="daily_rent"  value="0">
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">رقم</button>
+					<input type="number"  name="ad_no"       value="{{ad_no}}">
+
+					<button type="button" class="btn btn-dark btn-sm">تاريخ</button>
+					<input type="text"    name="ad_date"     value="{{ad_date}}">
+				</div>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">إسم المالك</button>
+					<input type="text" name="owner"  value="{{current_user.name}}">
+
+					<button type="button" class="btn btn-dark btn-sm" id="T1">تليفون </button>
+					<input type="text" name="phone"  id="phone" value="">
+					<button type="button" class="btn btn-dark btn-sm" >عنوان</button>
+					<input type="text" name="address"  id="address" value="">
+
+				</div>
+
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="T2">نوع المنزل</button>
+					<!-- <input type="text"    name="house_type"  value="Villa">  -->
+					<select id="selectInput" name="house_type" onchange="toggleSubmitButton()">
+						<option value="">اختر</option>
+						<option value="فيللا">فيللا</option>
+						<option value="شاليه"> شاليه</option>
+					  </select>
+
+
+
+
+
+
+
+					<button type="button" class="btn btn-dark btn-sm">المساحه</button>
+					<input type="number"  name="area"        value="100">
+					<button type="button" class="btn btn-dark btn-sm" id="T1">غرف النوم</button>
+					<input type="number"  name="rooms"  id="rooms"     value="1">
+					<button type="button" class="btn btn-dark btn-sm" id="T1">حمامات</button>
+					<input type="number"  name="bathrooms"  id="rooms" value="1">
+				</div>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">مطبخ</button>
+					<input type="checkbox" name="kitchen" id="kitchen" value="False">
+					<input type="hidden" name="kitchen" id="kitchen" value="True">
+					<br>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">مسبح</button>
+					<input type="checkbox" name="pool" id="kitchen" value="False">
+					<input type="hidden" name="pool" id="pool" value="True">
+					<br>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">مسبح اطفال</button>
+					<input type="checkbox" name="pool_kids" id="pool_kids" value="False">
+					<input type="hidden" name="pool_kids" id="pool_kids" value="True">
+					<br>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">شوايه خارجيه</button>
+					<input type="checkbox" name="grill" id="grill" value="False">
+					<input type="hidden" name="grill" id="grill" value="True">
+					<br>
+					<button type="button" class="btn btn-dark btn-sm" id="T1">تكييف</button>
+					<input type="checkbox" name="aircon" id="aircon" value="False">
+					<input type="hidden" name="aircon" id="aircon" value="True">
+				</div>
+				<div class="image-container">
+                        <label class="custom-file-upload">
+                        <input type="file" onChange="preview_2(this)" id="file"  name="file">
+                                إختار صوره</label>
+                        <img id="imagenFondo" alt="image_path">
+                </div>
+				<br>
+				<div></div>
+					<button type="submit" class="btn btn-danger">خزن البيانات</button>
+					<br><br><br>
+                </div>
+			</div>
+		</form>
+	</div>
+	{% endblock %}
+	</body>
+</html>

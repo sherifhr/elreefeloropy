@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<head>
+	<title>Elreef Eloroby-Add Stores/Shops</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="This page is used by registered
+	 user as an owner of commercial business to add his business name and
+	 type in Elreef Eloroby village site."">
+
+	<script>
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+    </script>
+
+<style>
+	.container{
+		text-align:left;
+	}
+
+	input[type="text"] {
+      width: 40cm;
+      height: 1cm;
+	  text-align: right;
+	  color:black;
+	  background-color:aliceblue;
+    }
+
+	.form1-container select {
+      width: 200px;
+      height: 30px;
+    }
+	#store_name{
+			width:230px;
+			background-color: aliceblue;
+		}
+
+	#address{
+		width:52%;
+		height: 1cm;
+		text-align: center;
+		color:blue;
+   		background-color: whitesmoke;
+		}
+
+	.custom-file-upload {
+    	display: inline-block;
+    	padding: 10px 20px;
+    	cursor: pointer;
+    	background-color: #4CAF50; /* Change this color */
+     	color: white; /* Change text color */
+     	border-radius: 5px;
+    	border: none;
+      }
+	.custom-file-upload input {
+    	display: none;
+    }
+ 	#imagenFondo {
+		position: absolute;
+  		border: 1px solid blue;
+  		margin-top: 0%;
+		margin-right: 0%;
+		height: 35%;
+		width: 25%;
+		top: 75%;
+		left: 15%;
+  }
+
+	#user_id{
+		width:3%;
+	}
+	#name1{
+		width:10%;
+	}
+	#name2{
+		width:15%;
+	}
+	#phone1{
+		height:1cm;
+		width:15%;
+		background-color: rgb(250, 250, 191);
+	}
+	#phone2{
+		height:.9cm;
+		width:15%;
+		background-color: rgb(250, 250, 191);
+	}
+	#store_name{
+		width:23.2%;
+		background-color: lightgray;
+		color: black;
+		font-weight: 900;
+	}
+
+	#sub{
+		border-radius: 20%;
+	}
+
+	#sub:hover{
+		color: black;
+	}
+	#btn2{
+		width:30%;
+		margin-bottom: 1mm;
+		margin-top: 0mm;
+	}
+</style>
+
+</head>
+<body dir="rtl">
+  	{% extends "home.html" %}
+  	{% block content%}
+	  <div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+		&nbsp&nbsp&nbsp
+        <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}">لوحه العمل</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} <i class="fa fa-fw fa-user"></i></button>
+	  </div>
+
+	<div class="container">
+		<h4>*** اضافه محل تجارى ***</h4>
+		<form action="/save_store"  method="POST" method="POST" 	enctype="multipart/form-data">
+			<div class="container">
+				<button id="btn2" class="btn btn-primary" type="button">بيانات المالك</button>
+				<div class="owner">
+					<button type="button" class="btn btn-dark btn-sm"  id="user_id">ID</button>
+					<button type="button" class="btn btn-danger btn-sm" id="user_id">{{user.id}}</button>
+					<input type="hidden" name="user_id" id="user_id"   value="{{user.id}}">
+					<button type="button" class="btn btn-dark btn-sm"  id="name1">إسم المالك</button>
+					<button type="button" class="btn btn-light btn-sm"  id="Name2">{{user.name}}</button>
+					<input type="hidden" name="name" id="name"  value="{{user.name}}">
+					<button type="button" class="btn btn-secondary btn-sm" id="name1">تليفون</button>
+					<button type="button" class="btn btn-light btn-sm"  id="Name2">{{user.phone}}</button>
+					<input type="hidden" name="phone" value="{{user.phone}}">
+          			<button type="button" class="btn btn-secondary btn-sm" id="name1">بريد الكتروني</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{user.email}}</button>
+					<input type="hidden" name="email" value="{{user.email}}">
+				</div>
+				<br>
+		  		<button id="btn2" class="btn btn-primary" type="button">بيانات المحل التجاري</button>
+				<br>
+          		<button type="button" class="btn btn-secondary" id="name2">اسم النشاط التجارى</button>
+				<input type="text"  id="store_name"  name="store_name" value="" placeholder=" Store Commercial Name ">
+				<br>
+				<button type="button" class="btn btn-secondary" id="name2">اختار نوع النشاط</button>
+				<label for="activity"></label>
+          		<select name="activity"  placeholder="Select Business Activity">
+              		<option value="select"> Select Business Activity</option>
+              		<option value="مطعم / كافيه">مطعم / كافيه</option>
+              		<option value="بقاله / ماركت">بقاله / ماركت</option>
+              		<option value="مركز اتصالات وشحن">مركز اتصالات وشحن</option>
+              		<option value="مخبز">مخبز</option>
+					<option value="مشتل ولوازم حدائق">مشتل ولوازم حدائق</option>
+					<option value="أعمال نجاره واخشاب">أعمال نجاره واخشاب</option>
+					<option value="أعمال كهرباء">أعمال كهرباء</option>
+					<option value="أعمال حداده ودهانات">أعمال حداده ودهانات</option>
+					<option value="ورشه ميكانيكا سيارات">ورشه ميكانيكا سيارات</option>
+					<option value="جزاره لحوم و دواجن">جزاره لحوم و دواجن</option>
+					<option value="خدمات طبيه">خدمات طبيه</option>
+					<option value="">اخرى</option>
+          		</select>
+				<button type="button" class="btn btn-secondary " id="name2">اختار درجه اﻷعلان</button>
+				<label for="adv_class"></label>
+          		<select name="adv_class" id="adv_class"  	placeholder="Select Business Class">
+              		<option value="select"> Select AD. Class</option>
+              		<option value="A">Class A Advert</option>
+              		<option value="B">Class B Advert</option>
+              		<option value="C">Class C Advert</option>
+          		</select>
+				<br><br>
+				<button type="button" class="btn btn-secondary " id="name2">تليفون-1</button>
+				<label for="phone1">*</label>
+				<input type="text" name="phone1"  id="phone1" placeholder="Mobile">{{store.phone1}}
+          		<button type="button" class="btn btn-secondary " id="name2">تليفون-2</button>
+				<label for="phone2">*</label>
+				<input type="text" name="phone2"  id="phone2" placeholder="Land Line">{{store.phone2}}
+          		<br><br>
+				<button type="button" class="btn btn-secondary " id="name1">عنوان المحل</button>
+				<label for="address">*</label>
+				<input type="text" name="address"  id="address" placeholder="Address">{{store.address}}
+				<br><br>
+				<div class="image-container">
+				<label class="custom-file-upload">
+				<input type="file" onChange="preview_2(this)" id="file"  name="file">
+						إختار صوره</label>
+				<img id="imagenFondo" alt="image_path">
+				</div>
+				<!-- &nbsp &nbsp &nbsp
+          		&nbsp &nbsp &nbsp  -->
+				</div><hr>
+				<div>
+					<button type="submit" class="btn btn-danger" id="sub">خزن البيانات</button>
+				</div>
+			</form>
+		</div>
+	{% endblock %}
+	</body>
+</html>

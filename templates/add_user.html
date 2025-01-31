@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html  lang="en"   dir="ltr">
+
+<head>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="description" content="This page is used by registered user as an owner of commercial business to add his business name and type in Elreef Eloroby village site.
+
+	<title>Elreef Eloroby-Add users/customers</title>	
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+   
+</head>
+<body dir="ltr">
+	{% extends "home.html" %}
+	{% block content %}
+	<div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}"     class="home-button"> Home page </a>
+			<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >Dash Board</a>
+			<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} 
+	</div>
+	<div class="container">
+		<h3> *** Add User *** </h3>
+		<br><br>
+		<form-l action="/update_user"   method="POST">
+			<div class="row g-3">
+				<div class="col-3">
+					<label for="username" class="form-label" >Name</label>
+					<input type="text" class="form-control" id="username"  name="username" placeholder="User Name">
+				</div>
+				<div class="col-2">
+					<label for="phone" class="form-label">Phone</label>
+					<input type="text" class="form-control" id="phone" name="phone" placeholder="Phone No.">
+				</div>
+				<div class="col-md-3">
+	       	<label for="email" class="form-label">Email</label>
+	  			<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+				</div>
+				<div class="col-md-2">
+	  			<label for="inputPassword4" class="form-label">Password</label>
+	  			<input type="password" class="form-control" id="password"  name="password" placeholder="password">
+				</div>
+				<hr>
+				<div class="col-12">
+					<hr>
+	  			<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+				<br><br><br>		
+			</div>
+		</div>
+  </form>
+  	{% endblock %}
+</body>
+</html>
+
+
+
+
+

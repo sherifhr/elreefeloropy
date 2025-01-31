@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<head>
+<title>Elreef Eloroby-Add Farm</title>
+
+<meta charset="utf-8" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" contents="<meta name="description" contents="
+1. Add your farm name to the Elreef Eloroby site. Only farm owners can submit details, including name, address, contact numbers, and email for visibility.
+2. Farm owners can enhance their presence on the Elreef Eloroby site by adding their farm name, address, contact phone numbers, and email for better outreach.
+3. Enhance your farm's visibility on Elreef Eloroby.">
+
+<!link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+<style>
+	.container{
+		text-align:left;
+	}
+
+	#user_id{
+	width:3%;
+	}
+
+	#name1{
+		width:10%;
+		height:.8cm;
+		/* background-color: ; */
+		margin-bottom: 2mm;
+	}
+	#name2{
+		width:15%;
+		height:.8cm;
+	}
+	#phone1{
+		height:1cm;
+		width:15%;
+		background-color: rgb(250, 250, 191);
+	}
+	#phone2{
+		height:.9cm;
+		width:15%;
+		background-color: rgb(250, 250, 191);
+	}
+
+	.container-owner{
+		display:inline;
+		justify-content: space-between;
+			}
+
+	.container-farm{
+		display:inline;
+		justify-content: space-between;
+			}
+
+	.owner{
+		display:inline;
+		text-align:right;
+		justify-content:flex-start;
+			}
+	.text-dir{
+		text-align: right;
+		}
+
+	#address1{
+		border-radius: 15px;
+		margin-top: 2mm;
+		background-color: gray;
+	}
+
+	#farm_name{
+		width:20%;
+		color: black;
+		font-family:'Times New Roman', Times, serif ;
+	}
+  	</style>
+</head>
+<body dir="rtl">
+  	{% extends "home.html" %}
+  	{% block content%}
+	  <div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			<!--<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}"     class="home-button"> Home page </a>-->
+			 <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+			<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >Dash Board</a>
+			<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}
+		</div>
+	<div class="container">
+   		<h4>*** اضافه مزرعه الى السوق ***</h4>
+		<form class="text-dir" action="/add_new_farm"  method="POST" >
+			<div class="container-owner">
+			<h5> بيانات المالك</h5>
+			<br>
+				<div class="owner">
+					<button type="button" class="btn btn-dark btn-sm" id="user-id">{{owner.id}}</button>
+					<input type="hidden" name="owner_id" value="{{owner.id}}">
+					<button type="button" class="btn btn-dark btn-sm" id="name1">اﻷسم</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{owner.name}}</button>
+					<input type="hidden" name="name" value="{{owner.name}}">
+
+					<button type="button" class="btn btn-dark btn-sm" id="name1">تليفون</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{owner.phone}}</button>
+					<input type="hidden" name="phone" value="{{owner.phone}}">
+
+					<button type="button" class="btn btn-dark btn-sm" id="name1">بريد الكتروني</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{owner.email}}</button>
+					<input type="hidden" name="email" value="{{owner.email}}">
+				</div>
+  				<div class="farm">
+				<br>
+				<h5> بيانات المزرعه </h5>
+				<br>
+					<button type="button" class="btn btn-dark btn-sm" id="name11">اسم المزرعه</button>&nbsp
+						<i class="fa fa-edit custom-icon-rd"></i>
+					<input type="text"  id="farm_name"  name="farm_name" placeholder="اسم المزرعه">
+					&nbsp&nbsp
+
+					<button type="button" class="btn btn-dark btn-sm" id="name1">نوعيه انتاج المزرعه</button>&nbsp<i class="fa fa-edit" id="custom-icon-rd"></i>
+					<select name="product_type" id="product_type">
+						<option value="select"> Select product type</option>
+						<option value="زراعى">زراعى</option>
+						<option value="طيور و دواجن">طيور و دواجن</option>
+						<option value="البان ولحوم">البان ولحوم</option>
+						<option value="خراف ةاغنام">خراف و اغنام</option>
+						<option value="نعام">نعام</option>
+					</select>
+					<br>
+					<button type="button" class="btn btn-dark btn-sm" id="name1">موقع المزرعه-1</button>&nbsp<i class="fa fa-edit" id="custom-icon-rd"></i>
+					<select name="address1" >
+						<option value="select"> Select Address1 		</option>
+						<option value="حدايق امستردام">حدايق امستردام 	</option>
+						<option value="حدايق نابولى">حدايق نابولى 		</option>
+						<option value="حدايق فالينسيا">حدايق فالينسيا 	</option>
+						<option value="بحدايق بولونيا"> حدايق بولونيا	</option>
+						<option value="حدايق لوزان "> حدايق لوزان		</option>
+						<option value="حدايق فيينا">حدايق فيينا			</option>
+						<option value="حدايق بافاريا">حدايق بافاريا		</option>
+						<option value="حدايق بيرن">حدايق بيرن			</option>
+						<option value="حدايق مرسيليا">حدايق مرسيليا 	</option>
+						<option value="حدايق اوديسا">حدايق اوديسا		</option>
+						<option value="">--------------------</option>
+						<option value="الريف البرتغالي">الريف البرتغالي </option>
+						<option value="الريف اﻷسباتي">الريف اﻷسباتي		</option>
+						<option value="الريف اﻷيرلندي">الريف اﻷيرلندي	</option>
+						<option value="الريف النرويجي">الريف النرويجي	</option>
+						<option value="الريف الدنماركي">الريف الدنماركي	</option>
+						<option value="الريف السويسري">الريف السويسري	</option>
+						<option value="">--------------------</option>
+						<option value="الريف النمساوي">الريف النمساوي	</option>
+						<option value="الربف الهولندي">الربف الهولندي	</option>
+						<option value="الريف البلجيكي">الريف البلجيكي	</option>
+						<option value="الريف السويدى">الريف السويدى		</option>
+						<option value="الريف الفرنسي">الريف الفرنسي		</option>
+						<option value="الريف اﻷلماني"> الريف اﻷلماني	</option>
+						<option value="الريف اﻷيطالي">الريف اﻷيطالي		</option>
+						<option value=""></option>
+						<option value=""></option>
+					</select>
+					&nbsp&nbsp&nbsp&nbsp&nbsp
+					<button type="button" class="btn btn-dark btn-sm" id="name1">موقع المزرعه-2</button>&nbsp<i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+					<input type="text" id="address2" name="address2" placeholder="Enter Address2">
+				</div>
+				<hr>
+				<div >
+	  				<button type="submit" class="btn btn-danger">Save</button>
+				</div>
+			</form>
+		</div>
+{% endblock %}
+</body>
+</html>

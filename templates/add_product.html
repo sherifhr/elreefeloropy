@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page is used by registered user as a farm owner to add products to their farms like name, price and image.">
+
+  <title> Elreef Eloroby - Add Farm Products</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+
+  <script src="/static/script9.js"></script>
+
+  <script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+
+<style>
+
+  #mainDropdown{
+    color:black;
+    width:35%;
+    height:0.9cm;
+    padding: 1px;
+    font-family: Thabit;
+    font-weight: 700;
+  }
+
+  #subDropdown{
+    color:black;
+    width:35%;
+    height:0.9cm;
+    padding: 1px;
+    font-family: Thabit;
+    font-weight:700;
+  }
+#image_path{
+width: 25%;
+color: transparent;
+}
+
+	#imagenFondo {
+			position: absolute;
+  		border: 1px solid blue;
+  		height: 35%;
+			width: 25%;
+			top: 45%;
+		  left: 10%;
+  }
+
+</style>
+<body>
+	{% extends "home.html" %}
+  {% block content %}
+  <div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+		<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >لوحه العمل</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}
+	</div>
+  <div class="container"><br>
+    <form  method="POST"  action="/submit"   enctype="multipart/form-data">
+	    <h4>*** اضافه منتجات للعرض بالسوق ***</h2>
+      <button type="button" class="btn1">
+      مزرعه {{ farm.farm_name }}&nbsp</button>
+      <div class="container">
+        <input type="hidden" id="farm_id" name="farm_id"  value="{{farm.id}}"  >
+        <label for="prod_category">
+        <select name="prod_category" id="mainDropdown" onchange="populateSubDropdown()">
+          <option value="selected">اختار الصنف</option>
+          <option value="منتجات_البان">منتجات البان</option>
+          <option value="فاكهه">فاكهه</option>
+          <option value="خضراوات">خضراوات</option>
+          <option value="منتجات_اخرى">منتجات_اخرى</option>
+        </select>
+        <select name="prod_name"  id="subDropdown">
+          <option value="">اختار المنتج</option>
+        </select>
+        <input type="file" onChange="preview_2(this);" id="image_path"
+            name="image_path" accept=".jpg,.png,.pdf">
+        <img id="imagenFondo" alt="image_path">
+      </div>
+      <div class="container">
+        <button type="button" class="btn btn-primary btn-sm">  &nbspالعبوه&nbsp</button>
+        <input type="radio" id="package1" name="package" value="كج" checked placeholder="#">كجم
+			  <input type="radio" id="package2" name="package" value="حبه" placeholder="#">حبه
+        <input type="radio" id="package2" name="package" value="طبق" placeholder="#">طبق
+        <input type="radio" id="package3" name="package" value="صندوق" placeholder="#">صندوق
+		</div>
+		<div class="container">
+      <button type="button" class="btn btn-secondary btn-sm">  &nbsp المخزون &nbsp</button>
+      <input type="integer"  id="stock" name="stock"  value="0" placeholder="#">
+      &nbsp&nbsp&nbsp
+      <button type="button" class="btn btn-secondary btn-sm">  &nbspالسعر&nbsp</button>
+	    <input type="integer"  id="unit_price" name="unit_price"  value="0" placeholder="#">
+    </div>
+    <div class="container">
+      <input type="submit"   value="Save" >
+	  </div>
+	</form>
+	{% endblock %}
+  </body>
+</html>
