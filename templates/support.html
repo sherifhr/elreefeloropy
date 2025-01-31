@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en"    dir="ltr">
+
+<head>
+  <meta name=”viewport” content=”width=device-width, initial-scale=1.0″>
+   <meta name="description" content="This page inlude all contacts for different types of support services to call in emergency (electrical, water, security and medical).">
+
+  <meta charset="utf-8">
+
+  <title>Complains Page</title>
+<style>
+  .card-body{
+    text-align: center;
+  }
+
+  .card-title{
+    text-align: center;
+    color:blue;
+    font-size:x-large;
+    background-color: coral;
+  }
+
+  #photo {
+    width: 30%;
+    height:20%;
+  }
+
+</style>
+
+</head>
+<body>
+  {% extends "index.html" %}
+  {% block content%}
+
+<div class="container">
+  <a href="{{url_for('index')}}" class="home-button"> Home page </a><br><br>
+
+  &nbsp&nbsp&nbsp&nbsp
+  <img id="photo" src="/static/images/Pic7.jpeg" class="card-img-top" alt="...">
+  &nbsp&nbsp&nbsp&nbsp
+  <img id="photo" src="/static/images/entr2.jpeg" class="card-img-top" alt="...">
+  &nbsp&nbsp&nbsp&nbsp
+  <img id="photo" src="/static/images/Pic7.jpeg" class="card-img-top" alt="...">
+  &nbsp&nbsp&nbsp&nbsp
+  <h1> الخدمات الفنيه والطوارئ </h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+  <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">اﻷسعاف & الشرطه</h5>
+          <hr>
+          <ul>
+            <i class="fa fa-phone-square" style="font-size:24px; color:blue"></i></li>
+            <br>
+            <i class="fa fa-phone-square" style="font-size:24px; color:red"></i></li>
+          </ul>
+          <p class="card-text">اسم المسئول وارقام اﻷتصال ومواعيد العمل</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">اداره الكهرباء</h5>
+          <hr>
+          <ul>
+            <i class="fa fa-phone-square" style="font-size:24px; color:blue"></i></li>
+            <br>
+            <i class="fa fa-phone-square" style="font-size:24px; color:red"></i></li>
+          </ul>
+          <p class="card-text">اسم المسئول وارقام اﻷتصال ومواعيد العمل</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">اداره اﻷمن و الحراسه</h5>
+          <hr>
+          <ul>
+            <i class="fa fa-phone-square" style="font-size:24px; color:blue"></i></li>
+            <br>
+            <i class="fa fa-phone-square" style="font-size:24px; color:red"></i></li>
+          </ul>
+          <p class="card-text">اسم المسئول وارقام اﻷتصال ومواعيد العمل.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">اداره المياه و اﻷبار</h5>
+          <hr>
+          <ul>
+            <i class="fa fa-phone-square" style="font-size:24px; color:blue"></i></li>
+            <br>
+            <i class="fa fa-phone-square" style="font-size:24px; color:red"></i></li>
+          </ul>
+          <p class="card-text">اسم المسئول وارقام اﻷتصال ومواعيد العمل.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">اداره الطرق و النظافه</h5>
+          <hr>
+          <ul>
+            <i class="fa fa-phone-square" style="font-size:24px; color:blue"></i>
+            <br>
+            <i class="fa fa-phone-square" style="font-size:24px; color:red"></i>
+          </ul>
+          <p class="card-text">اسم المسئول وارقام اﻷتصال ومواعيد العمل.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% endblock %}
+  </body>
+</html>

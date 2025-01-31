@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elreef Eloroby- Upload Copy of Purchase Order</title>
+    
+</head>
+<body>
+    <h1>Welcome Sherif XYX</h1>
+    <h3>Purchase Order Save</h3>
+    
+    <div class="container-A">
+        <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+    </div>
+    <form  action="/save_order3"   method="POST" enctype="multipart/form-data">
+        <input type="hidden" id="order_no" name="order_no" 
+        value="{{order_no}}">PO_No:&nbsp {{order_no}}</input>
+        <br>
+        <input type="hidden" id="order_date" name="order_date" 
+        value="{{order_date}}">PO_Date:&nbsp {{order_date}}</input>
+        <br>
+        <input type="hidden" id="order_farm" name="order_farm" 
+        value="{{order_farm}}">Farm : &nbsp {{order_farm}}</input>
+        <br>
+        <input type="hidden" id="order_buyer" name="order_buyer" 
+        value="{{order_buyer}}">Buyer Name: &nbsp {{order_buyer}}</input>
+        <br>
+        <input type="submit"  value="Save Order File" > 
+    </form>
+</body>
+</html>
