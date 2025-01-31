@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page is used by users registered as customer to show the contents of his shopping cart.">
+
+
+  <title>Elreef Eloroby- Admin Dashboard</title>
+
+<style>
+  a {
+    text-align: left;
+  }
+
+#btn2{
+  border-radius: 15px;
+  }
+
+</style>
+</head>
+
+<body dir="rtl">
+    {% extends "home.html" %}    <!-- <li class="page-item"><a class="page-link" href="#">Table of contents</a></li>
+
+    {% block content %}
+    <div class="container-A">
+      <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        &nbsp&nbsp&nbsp&nbsp
+      <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+      <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} <i class="fa fa-fw fa-user"></i></button>
+    </div>
+    <div class="container">
+        <br>
+        <strong>
+          <a class="btn btn-primary" href="{{ url_for('add_store') }}" id="btn2"role="button">Add store
+            <i class="fa fa-shopping-basket custom-icon"></i></a>
+          <a class="btn btn-primary" href="{{ url_for('store_list_all') }}" id="btn2"role="button">Show all stores
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+
+          <a class="btn btn-success" href="{{ url_for('cart_items_list') }}" id="btn2"role="button">Show all carts
+            <i class="fa fa-shopping-basket custom-icon"></i></a>
+
+          <a class="btn btn-success" href="{{ url_for('add_product', farm_id='1') }}" id="btn2"role="button">Add product
+              <i class="fa fa-shopping-basket custom-icon"></i></a>
+          <a class="btn btn-primary" href="{{ url_for('prod_list1') }}" id="btn2"role="button">Show all products
+              <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+
+          <a class="btn btn-warning" href="{{ url_for('add_farm') }}" id="btn2" role="button">Add farm adm in
+            </a>
+          <a class="btn btn-warning" href="{{ url_for('farm_list_admin') }}" id="btn2" role="button">Show all farms
+            </a>
+          <a class="btn btn-success" href="{{ url_for('users_list') }}" id="btn2" role="button">Show all users
+            </a>
+          <a class="btn btn-danger" href="{{ url_for('house_list_all') }}" id="btn2" role="button">Show daily rentals
+            </a>
+          <a class="btn btn-danger" href="{{ url_for('add_house') }}" id="btn2" role="button">Add Property
+            </a>
+      </div>
+    <br><br><br>
+  <footer class="footer">
+      <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+  {% endblock %}
+  </body>
+</html>

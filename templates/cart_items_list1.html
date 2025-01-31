@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html  lang="en"    dir="ltr">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ElreefEloroby-User Cart items list</title>
+
+<style>
+#submitButton{
+    background-color: orange;
+    width:20%;
+    height: 1cm;
+}
+#submitButton:hover{
+    color:brown;
+    font-weight: 700;
+}
+#selectInput{
+    color:black;
+    font-weight: 700;
+}
+
+
+
+</style>
+<script>
+
+    //document.getElementById("coButton").disabled = true;
+        function toggleSubmitButton() {
+            const selectInput = document.getElementById('selectInput');
+            const submitButton = document.getElementById('submitButton');
+
+            // Enable the submit button if a valid selection is made
+            submitButton.disabled = selectInput.value === ""; // Disable if no selection
+        }
+
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+
+    </script>
+</head>
+<body dir="rtl" onload="javascript:toggleButton()">
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container-A">
+        <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+            مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+        <a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" role="button">Dashboard</a>
+        {% if po_ava %}
+        <a id="btn1" class="btn btn-primary btn-sm" href="{{url_for('view_orders_list', user_name=current_user.name )}}" class="PO-button"> Purchase Orders </a>
+            &nbsp
+        {% endif %}
+        <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+    </div>
+    <div class="container">
+        <h4>*** محتويات سله الشراء  ***</h4>
+        <hr>
+        {% if items %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>رقم</th>
+                    <th>اسم الصنف</th>
+                    <th>متوفر</th>
+                    <th>مطلوب</th>
+                    <th>السعر</th>
+                    <th>اجمالى السعر</th>
+                    <th>المزرعه</th>
+                    <th>تاريخ/ساعه الطلب</th>
+                    <th>تعديل</th>
+                    <th>الغاء</th>
+                </tr>
+            </thead>
+            <tbody id="farm-list">
+            {% for item, farm , product in items %}
+                <strong>
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ product.prod_category}}-{{ product.prod_name}}</td>
+                    <td>{{ product.stock}}-{{ product.package}}</td>
+                    <td>{{ item.quantity }} {{ item.package }}</td>
+                    <td>{{ item.unit_price }}/{{ item.package }}</td>
+                    <td>{{ item.unit_price * item.quantity }}</td>
+                    <td>{{ farm.farm_name }}</td>
+                    <td>{{ item.event_datetime }}</td>
+                    <!-- <td>{{ item.ordered }}</td> -->
+                    <!-- <td>{{ user.id }}</td>
+                     -->
+                    <td><a href="{{ url_for('edit_cart',
+                        item_id=item.id) }}" aria-label="Twitter">
+                        <i class="fa fa-edit" style="font-size:24px"></i>
+                          </a></td>
+                    <td><a href="{{ url_for('delete_item_from_cart', item_id=item.id) }}" aria-label="Twitter"><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="container-1a">
+            <form method="POST"  action="/create_purchase_order" enctype="multipart/form-data">
+                <label for="item-dropdown"></label>
+                <select id="selectInput" name="item-dropdown" onchange="toggleSubmitButton()">
+                <option value="">Select Farm</option>
+                {% for farm in farms %}
+                <option value="{{ farm.farm_name }}" id="sherif">{{ farm.farm_name }}</option>
+                {% endfor %}
+                </select>
+                <input  type="hidden" name="user" id="user" value="{{user.name}}">
+                <input type="submit" id="submitButton" value="Create Order" disabled>
+            </form>
+        </div>
+        {% else %}
+            <p>  No data found.</p>
+        {% endif %}
+
+
+    </div>
+  {% endblock%}
+  </body>
+</html>

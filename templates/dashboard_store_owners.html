@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"  >
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page is the dashboard of storekeepr users.">
+
+  <title>Elreef Eloroby-Store Owner's Dashboard</title>
+<style>
+custom-icon{
+  font-size:20px;
+  color:red";
+}
+
+.btn{
+  text-align: center;
+  width: 19%;
+  }
+
+#btn2{
+  width:23%;
+  border-radius: 15px;
+  font-family: Thabit;
+
+}
+
+</style>
+
+</head>
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container-A">
+      <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        &nbsp&nbsp&nbsp&nbsp
+      <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+      <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+    </div>
+    <div class="container">
+        <strong>
+        <br>
+        <h4>*** صفحه اصحاب المحلات ***</h4>
+        <br><br>
+          <a class="btn btn-success" href="{{url_for('add_store')}}" id="btn2" role="button">اضافه نشاط تجارى
+            <i class="fa fa-shopping-basket custom-icon"></i></a>
+          <a class="btn btn-warning" href="{{url_for('show_store_adv')}}" id="btn2" role="button">عرض اعلان المحل
+                <i class="fa fa-bullhorn custom-icon"></i></a>
+          <a class="btn btn-primary" href="" id="btn2"role="button">تعديل بيانات محل
+                <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+          <a class="btn btn-success" href="" id="btn2" role="button">طلبات الشراء
+              <i class="fa fa-bullhorn"  style="font-size:20px;color:black"></i></a>
+        </div>
+        <br>
+    </div>
+  <footer class="footer">
+    <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+  {% endblock %}
+  </body>
+</html>

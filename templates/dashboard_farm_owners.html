@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"  >
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page is the dashboard for farm owner users.">
+
+  <title>Elreef Eloroby - Farm Owner's Dashboard</title>
+
+<style>
+
+.btn{
+  text-align: center;
+  width: 19%;
+  }
+#btn2{
+  border-radius: 15px;
+  border-style:double;
+  border-block-color: blue;
+  margin-bottom: 1mm;
+
+}
+
+#btn3{
+  border-radius: 5px;
+  margin-bottom: 2mm;
+  background-color: darkgreen;
+  color: white;
+  border-color: black;
+  border-width:1mm ;
+  align-items: center;
+
+}
+</style>
+</head>
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container-A">
+      <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        &nbsp&nbsp&nbsp&nbsp
+      <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+      <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+    </div>
+    <div class="container">
+      <strong>
+      <h4> صفحه اصحاب المزارع - مزرعه {{farm.farm_name}} </h4>
+      <br>
+          <a class="btn btn-success" href="{{url_for('prod_list2', name=current_user.name, farm_id=farm.id) }}" id="btn2"role="button">منتجات المزرعه
+            <i class="fa fa-shopping-basket custom-icon"></i></a>
+          <a class="btn btn-primary" href="{{url_for('add_product', farm_id=farm.id) }}" id="btn2"role="button">اضافه منتجات
+            <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+          <a class="btn btn-warning" href="{{url_for('cart_items_list2', farm_id=farm.id )}}" id="btn2" role="button">طلبات منتجات المزرعه
+            <i class="fa fa-bullhorn custom-icon"></i></a>
+          <a class="btn btn-success" href="{{url_for('view_orders_list_F', farm_id='2' )}}" id="btn2" role="button">طلبات الشراء
+            <i class="fa fa-bullhorn"  style="font-size:20px;color:black"></i></a>
+          <a class="btn btn-primary" href="{{url_for('edit_farm', farm_id=farm.id )}}" id="btn2" role="button">تعديل عنوان المزرعه
+            <i class="fa fa-edit custom-icon"  style="font-size:20px;color:black"></i></a>
+            <br><br>
+      </div>
+  <footer class="footer">
+    <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+  </footer>
+
+  {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html  lang="en"    dir="ltr">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This page is used by users registered as customer to show the contents of his shopping cart.">
+
+    <title>Elreef Eloroby-All Cart Items List</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+</head>
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container-A">
+        <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+            مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+            <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+            <a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >Dash Board</a>
+            <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}
+        </div>
+    <div class="container">
+         <a href="{{url_for('dashboard')}}" class="DB-button">Dash Board</a>
+         <a href="{{url_for('index')}}" class="home-button"> Home page </a>
+        <h5>مرحبا ...{{ current_user.name }}
+            <i class="fa fa-user"></i></h5>
+            <h4>*** محتويات سله الشراء -admin ***</h4>
+        <hr>
+        <table class="table table-striped">
+            <caption>محتويات سله الشراء</caption>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>اسم الصنف</th>
+                    <th>المزرعه</th>
+                    <th>السعر</th>
+                    <th>الكميه</th>
+                    <th>اجمالى السعر</th>
+                    <th>Photo</th>
+                    <th>المشترى</th>
+                    <th>ordered</th>
+                    <th>تاريخ/ساعه الطلب</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody id="farm-list">
+                {% for row, product, farm, user in rows %}
+                <strong>
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ product.id }}</td>
+
+                    <td>{{ product.prod_name }}</td>
+                    <td>{{ farm.farm_name }}</td>
+                    <td>{{ row.unit_price }}</td>
+                    <td>{{ row.quantity }}</td>
+                    <td>{{ row.unit_price * row.quantity }}</td>
+                    <td>{{ row.filename }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ row.ordered }}</td>
+                    <!-- <td>{{ row.event_datetime}}</td> -->
+                    <td><a href="{{ url_for('delete_item_from_cart', item_id=row.id) }}" aria-label="Twitter"><i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  {% endblock%}
+  </body>
+</html>
