@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>User Guide #1</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://www.fontstatic.com/f=jazeera,jazeera-light">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/thabit.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles2.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/thabit');
+</style>
+
+
+<body dir="rtl">
+    <div class="container">
+        <header>
+              <div class="header">
+                <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+                <h1> مجتمع الريف اﻷوربي</h1>
+                <h2> دليل المستخدم #1</h2>
+            </div>
+        </header>
+        <main>
+            <nav aria-label="Page navigation example">
+                <h3 style="color:blue">جدول المحتويات</h3>
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link" href="user_guide_6" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+
+                    <li class="page-item"><a class="page-link" href="user_guide_6">a</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="user_guide_1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_3">3</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_5">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="user_guide_2" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+
+                </ul>
+            <h3>نوعيه مستخدمى البرنامج</h3>
+            <ol>
+                <li>   زائر - لا يحتاج تسجيل بالموقع </li>
+                <li>متسوق</li>
+                <li>ملاك المزارع</li>
+                <li>ملاك المحلات التجاريه</li>
+                <li>ملاك سكن للايجار اليومي </li>
+            </ol>
+            <ol>
+                <li><h4>زائر</h4></li>
+                <ul>
+                    <li>عرض منتجات السوق</li>
+                    <li>عرض المحلات التجاريه</li>
+                    <li>عروض اﻷيجار اليومى -فلل و شاليهات</li>
+                    <li>عرض المزارع بالموقع</li>
+                </ul>
+                <li><h4 style=margin-bottom:1mm;>متسوق</h3>  </li>
+                <ul>
+                    <li>عرض منتجات السوق</li>
+                    <li>اضافه منتج/صنف الى عربه التسوق</li>
+                    <li>عرض محتويات عربه التسوق</li>
+                    <li>تعديل محتوى عربه التسوق</li>
+                    <li>اصدار أمر شراء</li>
+                </ul>
+                <li><h4 style=margin-bottom:1mm;>ملاك المزارع</h3></li>
+                <ul>
+                    <li>اضافه منتجات للمزرعه</li>
+                    <li>عرض منتجات المزرعه </li>
+                    <li>تعديل بيانات صنف</li>
+                    <li>عرض طلبات الشراء</li>
+                </ul>
+                <li><h4 style=margin-bottom:1mm;>ملاك المحلات التجاريه</h3></li>
+                <ul>
+                    <li>اضافه محل تجارى للموقع</li>
+                    <li>عرض اعلانات المالك</li>
+                </ul>
+                <li><h4 style=margin-bottom:1mm;>اﻷيجار اليومى</h3></li>
+                <ul>
+                    <li>اضافه فيلا او شاليه </li>
+                    <li>عرض اعلانات المالك</li>
+                </ul>
+            </ol>
+        </main>
+        <footer class="footer">
+            <p>Admin : Sherif Refaat  Tel: 01019301893</p>
+        </footer>
+    </div>
+</body>
+</html>

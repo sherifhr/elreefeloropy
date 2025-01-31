@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://www.fontstatic.com/f=jazeera,jazeera-light">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/thabit.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles2.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+    @import url('https://fonts.cdnfonts.com/css/thabit');
+</style>
+
+</head>
+
+<body dir="rtl">
+    <div class="container">
+        <header>
+            <div class="header">
+                <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+                <h1> مجتمع الريف اﻷوربي</h1>
+                <h2>دليل المستخدم #2<h2>
+            </div>
+        </header>
+
+        <main>
+            <nav aria-label="Page navigation example">
+                <h3 style="color:blue">جدول المحتويات</h3>
+                <ul class="pagination">
+                    <li class="page-item">
+                    <a class="page-link" href="user_guide_1" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+
+                    <li class="page-item"><a class="page-link" href="user_guide_6">a</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_1">1</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="user_guide_2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_3">3</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_5">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="user_guide_3" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+
+                </ul>
+            </nav>
+            <h2>المتسوق</h2>
+                <ol>
+                    <div>
+                        <li>سجل بالموقع و اختار النشاط متسوق</li>
+                        <li>ادخل على الموقع بالاسم والرقم السرى</li>
+                        <img src="/static/images/signup-2.png" style="width:23%; height:23%;">
+                        <img src="/static/images/login.png" style="width:25%; height:25%;">
+                    </div>
+                    <li>ستظهر صفحه لوح العمل </li>
+                </ol>
+                <h4>اختيارات لوحه العمل</h4>
+                <ol>
+                    <li>عرض منتجات السوق</li>
+                    <li>عرض محتويات عربه التسوق</li>
+                    <li>عرض طلبات الشراء</l1>
+                </ol>
+                <br>
+                <div>
+                    <img src="/static/images/shop-db2.png" style="width:55%; height:55%;">
+                </div>
+                <br><br>
+                <ol>
+                    <li><h4>عرض منتجات السوق</li></h4>
+                    <br>
+                    <div>
+                        <img src="/static/images/shop-market-prd.png" style="width:55%; height:10%;">
+                    </div>
+                    <br><br>
+                    <ul>
+                        <li>اضافه منتج لعربه التسوق </li>
+                        <ol>
+                            <li> اضغط على علامه العربه<i class="fa fa-fw fa-cart-plus"></i></li>
+                            <li> اختار الكميه المطلوبه بالضغط على اسهم الكميه اعلى او اسفل </li>
+                            <br>
+                            <div>
+                                <img src="/static/images/shop-add-item.png" style="width:55%; height:35%;">
+                            </div>
+                        </ol>
+                    </ul>
+                    <br><br>
+                    <h4><li>عرض محتويات عربه التسوق</li></h4>
+                        <ol>
+                            <li> اختار Dashboard اعلى الصفحه</li>
+                            <li> اختار عربه التسوق</li>
+                        </ol>
+                        <br>
+                        <div>
+                            <img src="/static/images/shop-cart2.png" style="width:55%; height:15%;">
+                        </div>
+                        <br>
+                        <ul>
+                            <li>عمل امر شراء</li>
+                            <ol>
+                                <li>اختار المزرعه التى تعرض الصنف المطلوب </li>
+                                <li>اختار عمل امر شراء </li>
+                            </ol>
+                        </ul>
+                        <br>
+                    <h4><li>عرض امر الشراء</li></h4>
+                    <ol>
+                        <li> اختارDashboard اعلى الصفحه </li>
+                        <li> اختار عرض امر شراء</li>
+                        <br>
+                        <div>
+                            <img src="/static/images/shop-po2.png" style="width:55%; height:55%;">
+                        </div>
+                        <br>
+                        <li> اختار View لعرض محتوي الصفحه</li>
+
+                        <div>
+                            <img src="/static/images/shop-po-items.png" style="width:55%; height:55%;">
+                        </div>
+                    </h3>
+                    </ol>
+                    </ol>
+        </main>
+
+        <footer class="footer">
+            <p>Admin : Sherif Refaat  Tel: 01019301893</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  lang="en" dir="ltr">
+<html>
+<head>
+	<meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles.css') }}">
+    <title>ElreefEloroby- Registered Users List </title>
+</head>
+<style>
+    tr td, tr th{
+        text-align: left;
+    }
+
+</style>
+<body>
+    {% extends "home.html" %}
+    {% block content%}
+
+    <div class="container-A">
+        <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+            مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button">Home</a>
+        <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} <i class="fa fa-fw fa-user"></i></button>
+    </div>
+    <div class="container">
+        <h4> *** {{title}} *** </h4>
+        <table class="table table-striped">
+            <table class="table table-striped">
+                <caption>{{title}}</caption>
+            <thead>
+                <tr><p><h5>
+                    <th>ID </th>
+                    <th>NAME</th>
+                    <th>PHONE</th>
+                    <th>MAIL</th>
+                    <th>ROLE</th>
+                    <th>ACTION</th>
+                </tr>
+             </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    <td>{{ row.id }}</td>
+                    <td>{{ row.name }}</td>
+                    <td>{{ row.phone }}</td>
+                    <td>{{ row.email }}</td>
+                    <td>{{ row.role }}</td>
+                    <td><a href="{{ url_for('delete_user', user_id=row.id) }}">Delete</a></td>
+                </tr>
+                {% endfor %}
+                <br>
+            </tbody>
+        </table>
+    </div>
+    <footer class="footer">
+        <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+    </footer>
+    {% endblock %}
+</body>
+</html>

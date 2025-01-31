@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://www.fontstatic.com/f=jazeera,jazeera-light">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/thabit.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles2.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+        @import url('https://fonts.cdnfonts.com/css/thabit');
+</style>
+
+</head>
+
+<body dir="rtl">
+    <div class="container">
+        <header>
+              <div class="header">
+                <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+                <h1> مجتمع الريف اﻷوربي</h1>
+                <h2> دليل المستخدم #4<h2>
+            </div>
+        </header>
+        <main>
+            <nav aria-label="Page navigation example">
+                <h3 style="color:blue">جدول المحتويات</h3>
+
+                <ul class="pagination">
+                    <!li class="page-item">
+                    <a class="page-link" href="user_guide_3" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+
+                    <li class="page-item"><a class="page-link" href="user_guide_6">a</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_1">1</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_2">2</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_3">3</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="user_guide_4">4</a></li>
+                    <li class="page-item"><a class="page-link" href="user_guide_5">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="user_guide_5" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+
+                </ul>
+            </nav>
+             <h2>اصحاب المحلات التجاريه</h2>
+            <ol>
+                <li>سجل بالموقع واختار نوع النشاط صاحب محل تجارى</li>
+                <li>ادخل على الموقع بالاسم و الرقم السرى المسجل </li>
+                <li>ادخل اﻷسم للمحل  التجاري </li>
+                <li>اختار نوع النشاط التجاري للمحل </li>
+                <li>اكمل التسجيل</li>
+                <li>ادخل على الموقع بالاسم والرقم السرى المسجل</li>
+                <div>
+                    <img src="/static/images/shop-owner-signup2.png" style="width:25%; height:15%;">
+                </div>
+                <br>
+                <li>لوحه عمل اصحاب المحلات ستظهر على الشاشه</li>
+            </ol>
+            <div>
+                <img src="/static/images/shop-owner-db.png" style="width:55%; height:15%;">
+            </div>
+            <br>
+            <h4>اختيارات لوح العمل</h4>
+            <ol>
+                <li>اضافه محل او نشاط تجارى</li>
+                <li>عرض اعلاناتك</li>
+
+            </ol>
+            <ul>
+                <li>اضافه نشاط تجارى /محل</li>
+                <div>
+                    <img src="/static/images/shop-owner-add.png" style="width:55%; height:15%;">
+                </div>
+                <ol>
+                    <li>اختار اضافه محل او نشاط تجارى</li>
+                    <li>ادخل اسم المحل</li>
+                    <li>اختار نوع نشاط المحل</li>
+                    <li>اضف صوره</li>
+                    <li>خزن البيانات Save</li>
+                </ol>
+                <br>
+                <li>عرض اعلاناتك</li>
+                <div>
+                    <img src="/static/images/shop-owner-adv.png" style="width:55%; height:15%;">
+                </div>
+            </ul>
+        </main>
+        <footer class="footer">
+            <p>Admin : Sherif Refaat  Tel: 01019301893</p>
+        </footer>
+    </div>
+
+
+</body>
+</html>
