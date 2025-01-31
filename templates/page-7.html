@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ElreefEloroby- All Stores List</title>
+
+<style>
+  .image-container{
+    width:100%;
+    height:50px;
+  }
+  #title1 {
+    width:100%;
+    font-family: Thabit;
+    font-weight: 900;
+    margin-top: .3cm;
+    margin-bottom: .5cm;
+    }
+    .text-center{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+</style>
+<body>
+  {% extends "home.html" %}
+  {% block content%}
+    <div class="container">
+      <a href="{{url_for('index')}}" class="home-button"> Home page </a>
+      <br><br>
+      <h5>Welcom...Customer </h5>
+      <br>
+		  <h3 class="text-center">المحلات و اﻷنشطه التجاريه</h3>
+      <hr>
+      <div class="card mb-2" style="max-width: 100%;" id="card1">
+        <div class="row g-0">
+        {% if store %}
+          {% for s , user in store %} 
+            <div class="col-md-6">
+                <img src="static/New_images/{{s.filename}}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <button type="button" class="btn btn-secondary btn-lg" id="title1">{{ s.id }}-{{ s.store_name }}</button>
+                   <p class="text-center">{{user.name}}</p>
+                   <p class="text-center">{{s.phone1}}
+                        <i class="fa fa-phone-square" style="font-size:24px; color:red"></i>
+                   </p>
+                    <!-- <p class="text-center">{{s.phone2}}
+                        <i class="fa fa-phone-square" style="font-size:24px; color:blue" id="phone"></i>
+                        </p> -->
+                    <p class="text-center">العنوان :{{s.address}}</small></p>
+                </div>
+              </div>
+            {%endfor%}
+          {% else %}
+            <p> .....No stores found.... Table is empty!</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endblock %}
+  </body>
+</html>

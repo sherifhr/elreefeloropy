@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  lang="en"    die="rtl">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elreef Eloroby-Purchase Orders List </title>
+</head>
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content%}
+    <div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+		<a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" role="button">لوحه العمل</a>
+
+        <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button>
+	</div>
+    <div class="container">
+        <h4>*** Purchase Orders List ***</h4>
+        <table class="table table-striped">
+            <caption>***Purchase Orders List***</caption>
+            <strong>
+                <thead>
+                    <td>رقم الطلب</th>
+                    <td>تاريخ الطلب</th>
+                    <td>المزرعه</td>
+                    <td>اسم المشترى</th>
+                    <td>عرض الطلب</th>
+                    <td>حاله الطلب</th>
+                    <td>الغاء الطلب</th>
+                </thead>
+                <tbody>
+                {% if s %}
+                {% for s in s %}
+                <tr>
+                    <td>{{ s.id }}/{{ s.order_no }}</td>
+                    <td>{{ s.order_date }}</td>
+                    <td>{{ s.order_farm }}</td>
+                    <td>{{ s.order_user }}</td>
+                    <td><a href="{{ url_for('view_order', order_id=s.id) }}">
+                        <i class="fa fa-eye" style="font-size:15px;color:darkgreen">View</i></a></td>
+                    <td>{{ s.status }}</td>
+                    <td><a href="{{url_for('delete_order', order_id=s.id) }}">
+                        <i class="fa fa-trash-o" style="font-size:20px;color:red"></i></a></td>
+                  </tr>
+                {% endfor %}
+                {% endif%}
+                <br>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+</body>
+</html>

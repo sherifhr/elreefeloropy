@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elreef Eloroby- Create Purchase Order Form </title>
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js">
+    </script>
+    <style>
+        .button-container {
+          display: flex;
+          justify-content:right;
+          margin-top: 20px;
+        }
+        .button-container button {
+          margin: 0 10px;
+        }
+ 
+        a {
+        color:blue;    
+        /* background-color: green;  */
+        padding: 5px 10px; /* Add some padding around the link */
+        border-radius: 4px; /* Add some rounded corners */
+        }
+        a:hover {
+        color: black;
+        background-color:white; /* Slightly darker grey background on hover */
+        } */
+        .title {
+        color:blue;
+        }
+        thead {
+            color:blue;
+            background-color:lightgrey;
+        }
+        #po{
+            border-color: transparent;
+            color: blue;
+            background-color:white; 
+            font-size:medium;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+    </style>
+</head>
+<body dir="rtl">
+   <div id="capture-frame">
+        <a href="{{url_for('index')}}" class="home-button"> Home page </a> 
+        <h2> مزارع الربف اﻷوربي - طلب شراء</h2>
+        <h4>
+        <hr>
+        <div class="button-container">
+            <button type="button" class="title">رقم الطلب</button>
+            {{new_order.order_no}} 
+            <button type="button" class="title">تاريخ الطلب</button>
+            {{new_order.order_date}} 
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <button type="button" class="title" >حاله الطلب</button>
+               {{new_order.status}}
+
+            <button type="button" class="title" >اسم المزرعه</button>
+               {{farms.farm_name}}
+        </div>
+        <hr>
+        <div class="button-container">
+            <button type="button" class="title" >اسم طالب الشراء</button>
+                {{buyers.name}}
+                &nbsp
+            <button type="button" class="title" >تليفون</button>
+                {{buyers.phone}}
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp
+            <button type="button" class="title" >بريد:</button>
+                {{buyers.email}}
+        </div>
+        </h2>
+        <hr>
+        <h5>
+        <table  class="table table-striped">
+            <thead>
+                <th>الفئه</td>
+                <th>الصنف</td>
+                <th>الكميه</th>
+                <th>العبوه</th>
+                <th>السعر </th>
+                <th>أﻷجمالي</th>
+            <tbody>
+            {% for item, product in items %}
+            <tr>
+                <td> {{ item.id }}</td>
+                <td> {{ product.prod_category}}-{{product.prod_name}}</td>
+                <td> {{ item.quantity }}</td>
+                <td> {{ item.package }}</td>
+                <td> {{ item.unit_price }}</td>
+                <td> {{ item.quantity * item.unit_price }}</td>
+                <a href="{{url_for('delete_item_from_cart', item_id=item.id)}}"></a>
+
+            </tr>
+            {% endfor %}
+        </table>         
+            <hr></h3>
+        <div>
+            اجمالى السعر - جم
+            <h3 id="total-price"> </h3>
+        </div>
+     
+<div>
+    <button onclick="saveAsImage()" id="po">1- Save P.O. As Image</button>
+    <br><br> 
+    
+    <a href="{{url_for('view_orders_list', user_name=buyers.name)}}">3- View Orders List</a>
+  </div>
+  
+<script>
+    // Calculate the total price using JavaScript
+    var totalPrice = 0;
+    var priceElements = document.querySelectorAll('td:nth-child(6)');  
+    // Select all price cells
+    for (var i = 0; i < priceElements.length; i++) {
+        var price = parseFloat(priceElements[i].textContent);
+        totalPrice += price;
+        }
+        document.getElementById('total-price').textContent = totalPrice.toFixed(2);
+        console.log(price);
+ 
+    function saveAsImage() {
+        const findEl = document.getElementById('capture-frame')
+        html2canvas(findEl).then((canvas) => {
+            const link = document.createElement('a')
+            document.body.appendChild(link) 
+            //link.download ="/orders/"+"{{order_no}}"+".jpg"
+            link.download ="{{order_no}}"+".jpg"
+            link.href = canvas.toDataURL("image/jpeg", 0.9);
+            link.click()
+            link.remove()
+        })
+    };
+    </script>
+</body>
+</html>

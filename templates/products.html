@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ElReef ElOroby- Market Products List</title>
+
+ <style>
+  #myForm2{
+  width:10%;
+ }
+  #btn1{
+    width:15%;
+    color:black;
+    font-weight: 900;
+   }
+
+   #text1{
+    color:blue;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+   }
+
+   #text2{
+    color:blue;
+    background-color: white;
+    width: 50%;
+    text-align: center;
+    font-weight: 500;
+    margin-left: 25%;
+   }
+
+   .fa{
+    color:darkblue;
+    background-color: yellow;
+   }
+
+#title1{
+  width:100%;
+}
+
+</style>
+</head>
+<body>
+  {% extends "home.html" %}
+  {% block content %}
+  <div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+      &nbsp&nbsp&nbsp&nbsp
+    <!--<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button">Home</a>-->
+     <a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home </a>
+    <a id="btn1" href="{{url_for('login'    )}}" class="btn btn-danger btn-sm">Login</a>
+    {% if current_user.name: %}
+         <a id="btn1" href="{{url_for('dashboard')}}" class="btn btn-danger btn-sm">لوحه العمل</a>
+    {% endif %}
+         <!a id="btn1" type="button" class="btn btn-warning btn-sm" href="{{url_for('cart_items_list1', buyer=current_user.name)}}" role="button">
+      </a>
+    <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button>
+  </div>
+  <div class="container">
+    <stronng>
+    <h2>منتجات المزارع </h2>
+    {% for product, farm in prods %}
+    <div class="card mb-2  custom-A">
+      <div class="row g-0">
+        <div class="col-md-2">
+            <img src="static/New_images/{{product.filename}}"
+              class="img-fluid rounded-start" alt="{{product.filename}}" width="100%"  length="auto">
+            <p>{{product.prod_name}}</p>
+        </div>
+        <div class="col-md-10">
+        {% if product.stock > 0 %}
+          <div class="card-body">
+              <h5 class="card-title1"> مزارع   {{farm.farm_name}}   </h5>
+              <h5 class="card-title2">{{product.id}}-{{product.prod_category}}{{'-'}}{{product.prod_name}} </h5>
+              <h5>
+              <p class="card-text" id="text2">العبوه:    {{product.package}} </small></p>
+              <p class="card-text" id="text2">الكميه المتوفره:   {{product.stock}} {{product.package}}</small></p>
+              <p class="card-text" id="text2">سعر العبوه:   {{product.unit_price}} جم</small></p>
+              <h6>
+              <p class="card-text" id="text1">تاريخ/وقت اﻷضافه :   {{ product.event_datetime }} </small></p>
+              </h5>
+              {% if current_user.name != null %}
+                <a href="{{ url_for('add_to_cart', item_id=product.id, buyer=current_user.name) }}" class="link-box">
+                <h5><i class="fa fa-fw fa-cart-plus"></i></h5></a>
+              {% endif %}
+          </div>
+        {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+   {% endblock %}
+  </body>
+</html>

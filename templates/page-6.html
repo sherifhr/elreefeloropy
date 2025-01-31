@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elreef Eloroby- Farms List</title>
+
+<style>
+  .image-container{
+    width:100%;
+    height:50px;
+  }
+  #title1 {
+    font-size: x-large;
+    width:100%;
+    font-family: Thabit;
+    font-weight: 900;
+    margin-top: .3cm;
+    margin-bottom: .5cm;
+     }
+
+    .text-center{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+    .text-left{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+
+</style>
+<body>
+  {% extends "home.html" %}
+  {% block content%}
+    <div class="container">
+      <a href="{{url_for('index')}}" class="home-button"> Home page </a>
+      <br><br>
+      <h5>Welcom...Customer </h5>
+      <br>
+		  <h3 class="title2">المزارع المسجله بالموقع</h3>
+      <hr>
+      <div class="card mb-2" style="max-width: 100%;" id="card1">
+        <div class="row g-0">
+        {% for farm in farms %}
+            <div class="col-md-6">
+                <img src="static/images/Logo1.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                   <button type="button" class="btn btn-secondary btn-lg" id="title1">Farm Name : {{ farm.farm_name }}</button>
+                   <p class="text-left"> Telephone : {{farm.phone}}</p>
+                   <p class="text-left"> E-Mail : {{farm.email}}</p>
+                   <p class="text-left"> Address : {{farm.address2}} # {{farm.address1}}</p>
+                </div>
+            </div>
+       {%endfor%}
+        </div>
+      </div>
+      {% endblock %}
+  </body>
+</html>

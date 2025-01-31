@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html  lang="en"   dir="ltr">
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{ current_user.name }} : Market products</title>
+
+    <style>
+        .custom-font{
+            font-size: 24px;
+        }
+        .custom-icon1{
+            font-size: 24px;
+            color: red;
+        }
+
+
+    </style>
+
+</head>
+
+<!----Admin product list-->
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content %}
+    <div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+		<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button">Home</a>
+		<a id="btn1" type="button" class="btn btn-warning btn-sm" href="{{url_for('cart_items_list1', buyer=current_user.name)}}" role="button">
+			Cart Items</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button>
+	</div>
+    <div class="container">
+        <a href="{{url_for('index')}}" class="home-button"> Home page </a>     
+        <h5>مرحبا ..{{ current_user.name }} <i class="fa fa-user"></i></h5>
+        <h4>  *** منتجات المزارع -{{Fx}}*** </h4>
+            <table class="table table-striped">
+                <caption>منتجات المزرعه</caption>
+                <strong>    
+                <thead>
+                    <tr>
+                        <td>رقم</th>
+                        <td>اسم الصنف</td>
+                        <td>السعر/العبوه</td>
+                        <td>المخزون</td>
+                        <td>المزرعه</td>
+                        <td>تاريخ/ساعه اﻷضافه</td>
+                        <td>شراء</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% if prods  %}
+                    {% for product, farm in prods %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.prod_category }}-{{product.prod_name}}</td>
+                        <td>{{ product.unit_price }}/{{ product.package }}</td>
+                        <td>{{ product.stock }}{{ product.package }}</td>
+                        <td>{{ farm.name }}</td>
+                        <td>{{ product.event_datetime }}</td>
+                        <td><a href="{{ url_for('add_to_cart', item_id=product.id, buyer= current_user.name) }}">
+                            <i class="fa fa-fw fa-cart-plus custom-icon1"></i></a></td>  
+                    </tr>
+                    </strong>
+                    {% endfor %}
+                {% else %}
+                {% endif %} 
+              </tbody>
+            </table>
+            
+        </div>
+       {% endblock %}
+</body>
+</html>

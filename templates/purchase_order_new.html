@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ElreefEloroby- Create Purchase Order</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    #name1{
+        width: 13%;
+        height:3%;
+        border-bottom: white;
+        font-weight: 700;
+        margin-bottom: 1mm;
+        margin-top: 1mm;
+    }
+    #name2{
+        width: 16%;
+        height:3%;
+        border-bottom: white;
+        font-weight: 700;
+    }
+    #name3{
+        width: 15%;
+        height:3%;
+        border-bottom: white;
+        border-radius: 15px;
+     }
+    .status{
+        display: inline;
+    }
+</style>
+<script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+
+</head>
+<body dir="rtl">
+   {% extends "home.html" %}
+   {% block content %}
+    <div class="container-A">
+        <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+            مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+        <a id="btn1" type="button" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" role="button">
+            لوحه العمل</a>
+        <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+    </div>
+    <div class="container">
+        <h4> مزارع الربف اﻷوربي - طلب شراء</h4>
+        <div class="container">
+            <button type="button" class="btn btn-secondary btn-sm">Order ID</button>
+            <button type="button" class="btn btn-light btn-sm">{{row.id}}</button>
+            <input type="hidden" name="id" value="{{row.id}}">
+            <button type="button" class="btn btn-secondary btn-sm" id="name1">رقم الطلب</button>
+            <button type="button" class="btn btn-light btn-sm" id="name1">{{row.order_no}}</button>
+            <input type="hidden" id="order_no" name="order_no" value="{{row.order_no}}">
+            <button type="button" class="btn btn-secondary btn-sm">تاريخ الطلب</button>
+            <button type="button" class="btn btn-light btn-sm" id="name2">{{row.order_date}}</button>
+            <input type="hidden" id="order_date" name="order_date" value="{{row.order_date}}">
+            &nbsp&nbsp&nbsp
+            <div class="status">
+                <button type="button" class="btn btn-secondary btn-sm" id="name3">حاله الطلب</button>
+                <button type="button" class="btn btn-danger btn-sm" id="name3">{{row.status}}</button>
+            </div>
+            <br>
+            <button type="button" class="btn btn-dark btn-sm" id="name1">إسم المزرعه</button>
+            <button type="button" class="btn btn-warning btn-sm" id="name2">{{row.order_farm}}</button>
+
+            <button type="button" class="btn btn-dark btn-sm">تليفون</button>
+            <button type="button" class="btn btn-warning btn-sm" id="name2">{{row.farm_phone}}</button>
+            <br>
+            <button type="button" class="btn btn-secondary btn-sm" id="name1">إسم المشتري</button>
+            <button type="button" class="btn btn-danger btn-sm" id="name2">{{row.order_user}}</button>
+
+            <button type="button" class="btn btn-secondary btn-sm">تليفون</button>
+            <button type="button" class="btn btn-danger btn-sm" id="name2">{{row.user_phone}}</button>
+
+            <button type="button" class="btn btn-secondary btn-sm" id="name1">بريد الكتروني</button>
+            <button type="button" class="btn btn-danger btn-sm" id="name2">{{row.user_email}}</button>
+
+            <table  class="table table-striped">
+                <thead>
+                    <th>رقم الصنف</td>
+                    <th>اسم الصنف</td>
+                    <th>متوفر</td>
+                    <th>الكميه</th>
+                    <th>السعر </th>
+                    <th>أﻷجمالي</th>
+                <tbody>
+                {% for item, product in items %}
+                <tr>
+                    <td> {{ item.id }} - {{ item.item_id }}</td>
+                    <td> {{ item.item_name }}</td>
+                    <td> {{ product.stock }}</td>
+                    <td> {{ item.quantity }}</td>
+                    <td> {{ item.unit_price }}</td>
+                    <td> {{ item.quantity * item.unit_price }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% if owner.role=='owner' and row.status != 'closed' %}
+            <a href="{{url_for('edit_order', order_id=row.id) }}" class="update-button"> تحديث حاله الطلب </a>
+        {% endif %}
+    </div>
+</div>
+    {% endblock %}
+</body>
+</html>
