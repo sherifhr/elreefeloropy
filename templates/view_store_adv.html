@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elreef Eloroby-Add New Store</title>
+
+<style>
+  .image-container{
+    width:100%;
+    height:3cm;
+  }
+</style>
+</head>
+<body>
+  {% extends "home.html" %}
+  {% block content%}
+  <div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+        <a id="btn1" type="button" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >لوحه العمل</a>
+        <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button>
+    </div>
+    <div class="container">
+      <br>
+		  <h4 class="text-center">محلاتك التجاريه</h4>
+      <hr>
+      <div class="row">
+      {% for s in store %}
+        <div class="col-md-4">
+          <div class="card">
+            <h3g>{{ s.activity }}</h3g>
+            <div class="image-container">
+              <a href="static/New_images/{{s.filename}}" target="_blank">
+              <img src="static/New_images/{{s.filename}}" alt="{{s.filename}}"></a>
+            </div>
+            <div class="card-body">
+                <hr>
+              <h4 class="card-title">{{ s.id }}-{{ s.store_name }}</h4>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{s.phone1}}
+                  <i class="fa fa-phone-square" style="font-size:24px; color:red"></i></li>
+                <li class="list-group-item">{{s.phone2}}
+                  <i class="fa fa-phone-square" style="font-size:24px; color:rgb(55, 34, 243)"></i></li></li>
+              </ul>
+              <a href="{{url_for('delete_store', store_id=s.id)}}" class="btn btn-danger btn-sm">إلغاء<i class="fas fa-trash-o" style="font-size:24px; color:orange"></i></a>
+              <a href="{{url_for('edit_store', st_id=s.id)}}" class="btn btn-success btn-sm">تعديل<i class="fa fa-edit" style="font-size:24px; color:blue"></i></a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

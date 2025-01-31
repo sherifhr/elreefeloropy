@@ -1,0 +1,184 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid with Table</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+   .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+        gap: 20px; /* Space between tables */
+        }
+    table {
+        border-collapse: collapse;
+        width: 100%; /* Make tables full width of the cell */
+        }
+        td{
+            color:blue;
+            font-weight: 700;
+            font-size: x-large;
+        }
+        .status {
+            font-size: 24px; /* Adjust font size as needed */
+        }
+        #dp{
+            width:100%;
+            margin-bottom: 4mm;
+            background-color: blue;
+            color: white;
+            font-weight: 700;
+            font-style: oblique;
+            font-size: larger;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        #H{
+            color:black;
+            font-weight: 700%;
+            width:75%;
+            background-color: white;
+        }
+        #H2{
+            width:31%;
+            background-color: white;
+            }
+        #H3{
+            color:black;
+            font-size: larger;
+            width:75%;
+            font-style:oblique;
+        }
+
+        #H4{
+            color:black;
+            background-color: rgb(154, 233, 154);
+            font-size:small;
+            width:40%;
+            font-style:oblique;
+        }
+
+        td{
+            align-items: start;
+        }
+        #del{
+            width: 40%;
+            font-weight: 500;
+        }
+        .button-group {
+            display: flex; /* Use flexbox to align buttons */
+            gap: 10px;    /* Space between buttons */
+
+        }
+    </style>
+
+</head>
+<body>
+{% extends "home.html" %}
+{% block content%}
+
+<div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        &nbsp&nbsp&nbsp&nbsp
+    <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+    {% if current_user.name: %}
+        <a id="btn1" class="btn btn-warning" href="{{url_for('dashboard')}}" >لوحه المستخدم</a>
+    {% endif %}
+    <button id="btn1" type="button" class="btn btn-secondary"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+</div>
+
+<div class="container">
+    <!br>
+    <h2> فيلات /شاليهات ايجار يومي</h2>
+    <br>
+    <div class="card mb-2" style="max-width: 100%;">
+        {% for house in house %}
+        <div class="row g-0">
+            <div class="col-md-3">
+                <a href="{{ url_for('house_page') }}" target="_blank">
+                    <img src="/static/images/{{house.filename}}" style="width:100%; height:70%;">
+                </a>
+            </div>
+            <div class="col-md-9">
+                <div class="card-body">
+                    <button type="button" id="dp">قيمه اﻷيجار اليومى   &nbsp&nbspE&pound {{house.daily_rent}} </button>
+                    <div class="grid-container">
+                    <table dir="rtl">
+                        <tbody>
+                            <tr>
+                                <td>رقم اﻷعلان</td>
+                                <td><button type="button" id="H3">{{house.ad_no}}</button></td>
+                            </tr>
+                            <tr>
+                                <td>نوع المنزل</td>
+                                <td><button type="button" id="H" >{{house.house_type}}</button></td>
+                            </tr>
+                            <tr>
+                                <td>غرف النوم</th>
+                                <td><button type="button" id="H" >{{house.rooms}}</button></th>
+                            </tr>
+                            <tr>
+                                <td>شوايه بالحديقه</th>
+                                <td><button type="button" id="H" >{{ '✓' if house.grill else 'X'}}</button></td>
+                            </tr>
+                            <tr>
+                                <td>حمام سباحه</th>
+                                <td><button type="button" id="H" >{{ '✓' if house.pool else 'X' }}</button></td>
+                            </tr>
+                            <tr>
+                                <td>تكييف</th>
+                                <td><button type="button" id="H" >{{ '✓' if house.aircon else 'X' }}</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                    <table dir="rtl">
+                        <tbody>
+                            <tr><td>تاريخ اﻷعلان</td>
+                                <td><button type="button" id="H" >{{house.ad_date}}</button></td>
+                            </tr>
+                            <tr>
+                                <td>المساحه/متر مربع</td>
+                                <td><button id="H">{{house.area}}</button></td>
+                            </tr>
+                                <td>عدد الحمامات</td>
+                                <td><button id="H" >{{house.bathrooms }}</button></td>
+                            </tr>
+                            <tr>
+                                <td>مطبخ مجهز</td>
+                                <td><button type="button" id="H" >{{ '✓' if house.kitchen else 'X' }}</button></td>
+                            </tr>
+                            <tr>
+                                <td>حمام سباحه للا طفال</th>
+                                <td><button type="button" id="H" >{{ '✓' if house.pool_kids else 'X' }}</button></td>
+                            </tr>
+                            <tr>
+                                <td>موقف مغطى للسيارات</th>
+                                <td><button type="button" id="H" >{{ '✓' if house.pool_kids else 'X' }}</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% if current_user.name: %}
+                        <a href="{{url_for('delete_house', house_id=house.id)}}" id="del" class="btn btn-danger btn-sm">Delete</a>
+                    {% endif%}
+                </div>
+                <br>
+                <div class="button-group">
+                    <button type="button" class="btn btn-outline btn-sm" >Owner</button>
+		            <button type="button" id="H4">{{house.owner}}</button>
+                    <br>
+                    <button type="button" class="btn btn-outline btn-sm" >Phone</button>
+		            <button type="button" id="H4">{{house.phone}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+</body>
+</html>
