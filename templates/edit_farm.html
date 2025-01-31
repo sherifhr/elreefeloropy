@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"    dir="ltr">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This page for users-farm owner to edit/update their farm data when needed.">
+
+	<meta charset="utf-8">
+	<title>Elreef Eloroby-Edit Farm Records </title>
+
+<style>
+.custom-icon{
+	color:red;
+}
+</style>
+
+<script>
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+</head>
+<body>
+	{% extends "home.html" %}
+	{% block content %}
+	<div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			&nbsp&nbsp&nbsp&nbsp
+		<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" type="button" class="btn btn-warning btn-sm" href="{{url_for('cart_items_list1', buyer=current_user.name)}}" role="button">
+			Cart Items</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} <i class="fa fa-fw fa-user"></i></button>
+	</div>
+	<div class="container">
+		<h2>Edit Farm Record</h2>
+		<form  action="/update_farm" method="POST">
+			<div class="container">
+				<input type="hidden" id="id" name="id"
+				value="{{user.id}}" >
+				<input type="hidden" id="name" name="name"
+				value="{{ user.name}}">
+				<input type="hidden" id="user_id" name="user_id"
+				value="{{ user.user_id}}">
+				<input type="hidden" id="phone" name="phone"
+				value="{{ user.phone}}" >
+				<input type="hidden" id="email" name="email"  value="{{ user.email}}" >
+				<div>
+					<button type="button" class="btn btn-dark btn-sm">اسم المزرعه</button>
+					<button type="button" class="btn btn-light btn-sm">{{ user.farm_name}}</button>
+				</div>
+					<br>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm">اسم المالك</button>
+					<button type="button" class="btn btn-light btn-sm">{{owner.name}}</button>
+					<button type="button" class="btn btn-dark btn-sm">رقم اتصال</button>
+					<button type="button" class="btn btn-light btn-sm">{{user.phone}}</button>
+				</div>
+				<br>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm">العنوان-1</button>
+					<label for="address1"><i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+					</label>
+					<input type="text"  id="address1" name="address1" value="{{user.address1}}" placeholder="Address-1">
+					<button type="button" class="btn btn-dark btn-sm">العنوان-2</button>
+					<label for="address2"><i class="fa fa-edit custom-icon" aria-hidden="true"></i></label>
+					<input type="text"  id="address2" name="address2" value="{{user.address2}}" placeholder="Address-2">
+				</div>
+				<br>
+				<div>
+					<input type="submit" value="Save">
+				</div>
+			</div>
+		</form>
+	</div>
+	{%endblock%}
+	</body>
+</html>
+
+

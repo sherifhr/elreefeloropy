@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en"    dir="ltr">
+<html>
+<head>
+  	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="This page for users-customer to edit or delete their shopping cart.">
+
+		<title>Elreef Eloroby-Edit Cart Items</title>
+<script>
+document.querySelectorAll('.item').forEach(item => {
+  item.addEventListener('click', () => {
+    item.classList.toggle('active');
+    item.querySelector('.dropdown-menu').classList.toggle('show');
+    });
+  });
+
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+
+<style>
+	h2{
+		text-align: center;
+	}
+	#name1{
+		width: 10%;
+		height:2%;
+	}
+
+	#name2{
+		width: 20%;
+		height:1.5%;
+
+	}
+
+	#name3{
+		width: 20%;
+		height:2%;
+		/* margin-top: .3cm;
+		top:30%; */
+	}
+.image{
+		position:absolute;
+		border: 1px solid transparent;
+		height: 10px;
+		width: 20%;
+		right: 69%;
+		top: 40%;
+		left:40%;
+	}
+	 #result{
+		margin-top: .3cm;
+		}
+</style>
+
+</head>
+<body dir="rtl" onload="javascript:calculateProduct()">
+	{% extends "home.html" %}
+	{% block content %}
+	<div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			&nbsp&nbsp&nbsp&nbsp
+		<a id="btn1" class="btn btn-success btn-sm" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" type="button" class="btn btn-warning" href="{{url_for('cart_items_list1', buyer=current_user.name)}}" role="button">
+			Cart Items</a>
+		<button id="btn1" type="button" class="btn btn-secondary"><i class="fa fa-fw fa-user"></i> {{current_user.name}} <i class="fa fa-fw fa-user"></i></button>
+	</div>
+	<div class="container">
+		<h4> *** تعديل سله الشراء - (الكميه) ***</h4>
+		<form  action="/update_cart" method="POST">
+			<div class="container">
+				<input type="hidden" id="id" name="id"
+				value="{{items.id}}" >
+				<input type="hidden" id="buyer_id" name="buyer_id"
+				value="{{ items.buyer_id}}">
+				<input type="hidden" id="product_id" name="product_id"
+				value="{{ items.product_id}}" >
+				<input type="hidden" id="farm_id" name="farm_id"  value="{{ items.farm_id}}" >
+				<input type="hidden"  id="package" name="package" value="{{items.package}}" >
+				<input type="hidden"  id="unit_price" name="unit_price" value="{{items.unit_price}}" >
+				<input type="hidden"  id="filename" name="filename" value="{{items.filename}}" >
+				<div class="image">
+					<img src="/static/New_images/{{items.filename}}" alt="{{items.filename}}">
+					 <hr>
+				</div>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="name1">{{items.id}} الصنف</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{products.id}} - {{ products.prod_category}}-{{ products.prod_name}}</button>
+					<button type="button" class="btn btn-dark btn-sm">العبوه</button>
+					<button type="button" class="btn btn-light btn-sm">{{items.package}}</button>
+				</div>
+				<br>
+				<div>
+					<button type="button" class="btn btn-primary btn-sm" id="name1">اسم المشترى</button>
+					<button type="button" class="btn btn-success btn-sm" id="name2">{{users.name}}</button>
+					<button type="button" class="btn btn-primary btn-sm" id="name1">اسم المزرعه</button>
+					<button type="button" class="btn btn-success btn-sm" id="name2">{{farms.farm_name}}</button>
+	  		</div>
+				<br>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="name1">تاريخ الطلب</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{items.event_datetime}}</button>
+				</div>
+				<br>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="name2">السعر/كجم</button>
+					<!-- <input type="number" id="unit_price" name="unit_price" value="{{ items.unit_price }}"> -->
+
+					<button type="button" class="btn btn-light btn-sm" id="name1">{{items.unit_price}} EGP</button>
+					&nbsp&nbsp&nbsp
+					<button type="button" class="btn btn-danger btn-sm">الكميه</button>
+					<input type="number" id="quantity" name="quantity" value="{{ items.quantity }}">
+					<i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+				</div>
+				<!br>
+				<div>
+					<button type="button" class="btn btn-dark btn-sm" id="name3">اجمالى السعر</button>
+					<!-- <p id="result" > </p> -->
+					<button type="button" class="btn btn-sm">
+						<h5 id="result"></h5></button>
+				</div>
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="Save">
+			</div>
+		</form>
+    <script>
+			var dt = new Date();
+			//document.getElementById("datetime").innerHTML = dt.toLocaleString();
+
+			const quantity = document.getElementById('quantity');
+			const unit_price = document.getElementById('unit_price');
+			const resultParagraph = document.getElementById('result');
+			// Function to calculate the product and update the result paragraph
+			function calculateProduct() {
+					const value1 = quantity.value;
+					const value2 = unit_price.value;
+					const total = value1 * value2;
+					//const button =document.getElementById('decreaseQuantity(this.nextElementSibling)')
+					resultParagraph.textContent = 'EGP '+total;
+					document.getElementById("total").innerText = total;
+									}
+					quantity.addEventListener('input', calculateProduct);
+					//button.addEventListener('onclick', calculateProduct);
+					//window.onload = calculateProduct;
+					//document.addEventListener('DOMContentLoaded', calculateProduct);
+					//document.getElementById("total").innerText = total;
+	</script>
+	 {% endblock %}
+  </body>
+</html>

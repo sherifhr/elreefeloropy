@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"   dir="ltr">
+<head>
+
+	<title>Elreef Eloriby-Edit Store Records</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="This page is for users-business owners who have shops and need to edit shop data like address,telephone,photo.">
+	<link rel="stylesheet" href="styles2.css">
+<script>
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+</script>
+
+<style>
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Change this color */
+    /* color: white; /* Change text color */
+    border-radius: 5px;
+    border: none;
+     }
+
+.custom-file-upload input {
+    display: none; /* Hide the default file input */
+    }
+#imagenFondo {
+	position: absolute;
+  border: 1px solid blue;
+  height: 23%;
+	width: 13%;
+	top: 70%;
+	left: 10%;
+  }
+
+.photo{
+	width:35%;
+	height:25%;
+	padding-left:10%;
+
+}
+
+#name1{
+	width:10%;
+}
+#name2{
+	width:15%;
+}
+#phone1{
+	height:auto;
+	width:14%;
+	background-color: rgb(250, 250, 191);
+}
+#phone2{
+	height:auto;
+	width:14%;
+	background-color: rgb(250, 250, 191);
+}
+#address{
+	height:auto;
+	width:29%;
+	background-color: rgb(250, 250, 191);
+}
+#adv_class{
+	height:auto;
+	width:10%;
+	background-color: rgb(250, 250, 191);
+}
+.image-container {
+            display: flex; /* Use flexbox to align items */
+            gap: 20px; /* Space between images */
+            align-items: center; /* Center align items vertically */
+        }
+img {
+            max-width: 300px; /* Set a max width for images */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+#owner {
+			color:white;
+			font-weight: 700;
+			width: 20%;
+			text-align: center;
+			font-family: Thabit;
+			border-color: black;
+			background-color: darkgreen;
+			margin-bottom: 4mm;
+			}
+.owner{
+			align-items: center;
+			text-align: canter;
+			/* margin-right: 24%; */
+}
+.shop{
+			align-items: center;
+			text-align: canter;
+			/* margin-right: 24%; */
+		}
+
+
+</style>
+
+</head>
+<body dir="rtl">
+  	{% extends "home.html" %}
+  	{% block content%}
+	<div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			&nbsp&nbsp&nbsp&nbsp
+		<a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</i></button>
+	</div>
+	<div class="container">
+		<h4>*** تعديل بيانات المحل ***</h4>
+		<br>
+		<form action="/update_store"  method="POST" method="POST" 		enctype="multipart/form-data">
+		<button type="button" class="btn btn-light btn-sm" id="owner">بيانات المالك</button>
+		<div class="owner">
+			<!-- <button type="button" class="btn btn-primary btn-sm" placeholser="ID">ST_ID{{store.id}}</button> -->
+			<input  type="hidden" name="id" id="id"   value="{{store.id}}">
+			<input  type="hidden" name="user_id" id="user_id"   value="{{user.id}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name1">اﻷسم</button>
+			<button type="button" class="btn btn-light btn-sm">{{user.name}}</button>
+			<input  type="hidden" name="name" id="name"  value="{{user.phone}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name1">رقم تليفون</button>
+			<button type="button" class="btn btn-light btn-sm">{{user.phone}}</button>
+			<input  type="hidden" name="email" value="{{user.email}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name1">بريد الكتروني</button>
+			<button type="button" class="btn btn-light btn-sm">{{user.email}}</button>
+		</div>
+		<div class="store">
+	        <br><br>
+	  	    <button type="button" class="btn btn-light btn-sm" id="owner"> بيانات المحل التجاري</button>
+		    <div class="shop">
+         	<button type="button" class="btn btn-dark btn-sm" id="name1">اسم المحل</button>
+			<button type="button" class="btn btn-light btn-sm">{{store.store_name}}</button>
+			<input type="hidden" name="store_name" id="store_name"  placeholder="Store Name" value="{{store.store_name}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name2">النشاط التجاى للمحل</button>
+			<button type="button" class="btn btn-light btn-sm">{{store.activity}}</button>
+			<input type="hidden" name="activity" id="activity"  placeholder="نوع نشاط المحل" value="{{store.activity}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name1">تليفون-1</button><i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+			<input type="text" name="phone1" id="phone1"  placeholder="Phone Number" value="{{store.phone1}}"></icon>
+			<button type="button" class="btn btn-dark btn-sm" id="name1">تليفون-2</button><i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+			<input type="text" name="phone2" id="phone2"  placeholder="Phone Number" value="{{store.phone2}}">
+			<br><br>
+			<button type="button" class="btn btn-dark btn-sm" id="name1">العنوان</button><i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+			<input type="text" name="address" id="address"  placeholder="Address" value="{{store.address}}">
+			<button type="button" class="btn btn-dark btn-sm" id="name1">adv_class</button><i class="fa fa-edit custom-icon" aria-hidden="true"></i>
+			<input type="text" name="adv_class" id="adv_class"  placeholder="Adert. Class" value="{{store.adv_class}}">
+			<input type="hidden" id="filename"  name="filename" value="{{store.filename}}">
+			<div class="image-container">
+				<!-- Current image displayed from the database -->
+				<img class="currentImage" src="/static/images/{{store.filename}}" alt="{{store.filename}}">
+				<!-- Preview the new image -->
+				<img id="previewImage" src="" alt="Preview Image"  display: none;">
+				<div class="overlay-text">Sample </div>
+    </div>
+			</div>
+			<input type="file" id="imageUpload" name="imageUpload" accept="image/*" onchange="preview_2(this)">
+<!--
+					<input type="file"  onChange="preview_2(this);" id="file"
+					name="file" accept=".jpg,.png,.pdf"> -->
+		</div>
+		<div>
+			<button type="submit" class="btn btn-danger">تحديث البيانات</button>
+		</div>
+	</form>
+</div>
+	<script>
+        function preview_2(obj) {
+            if (FileReader) {
+                var reader = new FileReader();
+                reader.readAsDataURL(obj.files[0]);
+
+                reader.onload = function (e) {
+                    var image = new Image();
+                    image.src = e.target.result;
+
+                    image.onload = function () {
+                        // Display the preview image
+                        var previewImg = document.getElementById('previewImage');
+                        previewImg.src = image.src;
+                        previewImg.style.display = 'block'; // Show the preview
+                    };
+                };
+            }
+        }
+    </script>
+	{% endblock %}
+	</body>
+</html>

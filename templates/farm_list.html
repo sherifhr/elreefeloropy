@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html  lang="en"    die="rtl">
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="description" content="This page is for every one to list all farms site.">
+
+    <title>Elreef Eloroby-Farms List </title>
+</head>
+<body dir="rtl">
+    {% extends "home.html" %}
+    {% block content%}
+    <div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+            &nbsp&nbsp&nbsp&nbsp
+        <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button>
+	</div>
+    <div class="container">
+        <h4> *** Registered Farms *** </h4>
+        <table class="table table-striped">
+            <caption>Farms List</caption>
+                <strong>
+                <thead>
+                    <td>رقم</th>
+                    <td>اسم المزرعه</th>
+                    <td>مالك المزرعه</th>
+                    <td>تليفون </th>
+                    <td>بريد الكترونى </th>
+                    <td>عنوان المزرعه</th>
+                    <td>عنوان المزرعه</th>
+                </thead>
+                <tbody>
+                <strong>
+                {% for farm, user in farms %}
+                <tr>
+                    <td>{{ farm.id }}</td>
+                    <td>{{ farm.farm_name }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ farm.phone }}</td>
+                    <td>{{ farm.email }}</td>
+                    <td>{{ farm.address1 }}</td>
+                    <td>{{ farm.address2 }}</td>
+                </tr>
+                {% endfor %}
+                <br>
+            </tbody>
+        </table>
+    </div>
+    <footer class="footer">
+    <strong>&copy; Admin : Sherif Refaat  Tel: 01019301893</strong>
+    </footer>
+{% endblock %}
+</body>
+</html>
+

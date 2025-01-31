@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en"    dir="ltr">
+
+<html>
+<head>
+  	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="This page for user-farm owner to update status(pending, completed, deleted) of purchase orders for farm items.">
+
+	<title>Elreef Eloroby-Edit Purchase Order Status</title>
+		<script>
+			window.onpageshow = function(event) {
+				if (event.persisted) {
+					window.location.reload();
+				}
+			};
+		</script>
+
+<style>
+	#name1{
+		width: 10%;
+		height:2%;
+		margin-top: 1mm;
+		margin-bottom: 1mm;
+	}
+
+	#name2{
+		width: 15%;
+		height:2%;
+	}
+
+	#name3{
+		width: 20%;
+		height:2%;
+		border-radius: 15px;
+	}
+	#submitButton{
+		background-color: green;
+		color: white;
+		border-radius: 10px;
+	}
+
+</style>
+<script>
+	function toggleSubmitButton() {
+		const selectInput = document.getElementById('selectInput');
+		const submitButton = document.getElementById('submitButton');
+
+		// Enable the submit button if a valid selection is made
+		submitButton.disabled = selectInput.value === ""; // Disable if no selection
+	}
+</script>
+
+</head>
+<body dir="rtl">
+	{% extends "home.html" %}
+	{% block content %}
+	<div class="container-A">
+		<h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+			مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+			&nbsp&nbsp&nbsp&nbsp
+		<a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+		<a id="btn1" type="button" class="btn btn-primary btn-sm" href="{{url_for('view_order', order_id='2')}}" role="button">
+			طلب الشراء</a>
+		<button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}} </button>
+	</div>
+	<div class="container">
+		<h4> *** تعديل حاله طلب شراء ***</h4>
+		<form  action="/update_order_status" method="POST">
+			<div class="container">
+				<input type="hidden" id="id" name="id"
+				value="{{order.id}}" >
+				<input type="hidden" id="order_no" name="order_no"
+				value="{{ order.order_no}}">
+				<input type="hidden" id="order_date" name="order_date"
+				value="{{ order.order_date}}" >
+				<input type="hidden" id="order_farm" name="order_farm"  value="{{ order.order_farm}}" >
+				<input type="hidden"  id="farm_phone" name="farm_phone" value="{{order.farm_phone}}" >
+				<input type="hidden"  id="order_user" name="order_user" value="{{order.order_user}}" >
+				<input type="hidden"  id="user_phone" name="user_phone" value="{{order.user_phone}}" >
+				<input type="hidden"  id="user_email" name="user_email" value="{{order.user_email}}" >
+				<!input type="hidden"  id="status" name="status" value="{{order.status}}">
+				<div>
+        			<button type="button" class="btn btn-dark btn-sm">تسلسل</button>
+					<button type="button" class="btn btn-light btn-sm">{{order.id}}</button>
+		            <button type="button" class="btn btn-dark btn-sm" id="name1">رقم الطلب</button>
+				    <button type="button" class="btn btn-light btn-sm" id="name1">{{order.order_no}}</button>
+		            <button type="button" class="btn btn-dark btn-sm" id="name1">تاريخ الطلب</button>
+				    <button type="button" class="btn btn-light btn-sm">{{order.order_date}}</button>
+		            <button type="button" class="btn btn-dark btn-sm" id="name1">اسم المزرعه</button>
+				    <button type="button" class="btn btn-light btn-sm" id="name2">{{order.order_farm}}</button>
+		            <button type="button" class="btn btn-dark btn-sm" id="name1">رقم تليفون</button>
+				    <button type="button" class="btn btn-light btn-sm">{{order.farm_phone}}</button>
+				</div>
+				<div>
+                    <button type="button" class="btn btn-primary btn-sm" id="name1">إسم المشتري</button>
+					<button type="button" class="btn btn-light btn-sm" id="name1">{{order.order_user}}</button>
+					<button type="button" class="btn btn-primary btn-sm" id="name1">رقم تليفون</button>
+					<button type="button" class="btn btn-light btn-sm" id="name1">{{order.user_phone}}</button>
+					<button type="button" class="btn btn-primary btn-sm" id="name1">بريد الكتروني</button>
+					<button type="button" class="btn btn-light btn-sm" id="name2">{{order.user_email}}</button>
+					<br><br>
+					<select id="selectInput" name="status" onchange="toggleSubmitButton()">
+						<option value="Select Status">تحديث حاله الطلب</option>
+						<option value="pending">جارى التجهيز</option>
+						<option value="closed">اكتمل</option>
+					</select>
+					<button type="button" class="btn btn-danger btn-sm" id="name3">{{order.status}}</button>
+			    </div>
+				<hr>
+				<input type="submit" id="submitButton" value="تحديث" disabled>
+				<!-- <input type="submit" value="Upate"> -->
+			</form>
+    	{% endblock %}
+  </body>
+</html>

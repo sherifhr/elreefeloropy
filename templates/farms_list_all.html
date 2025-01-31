@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elreef Eloroby- Farms List</title>
+
+<style>
+  .image-container{
+    width:100%;
+    height:50px;
+  }
+  #title1 {
+
+    font-size: x-large;
+    width:100%;
+    font-family: Thabit;
+    font-weight: 900;
+    margin-top: .3cm;
+    margin-bottom: .5cm;
+     }
+
+    .text-center{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+    .text-left{
+        font-family: Thabit;
+        font-size: x-large;
+    }
+
+</style>
+<body>
+  {% extends "home.html" %}
+  {% block content%}
+  <div class="container-A">
+    <h1><img src="/static/images/Logo1.png" style="width:5%; height:5%;">
+        مجتمع الريف اﻷوربي <img src="/static/images/Logo1.png" style="width:5%; height:5%;"></h1>
+        &nbsp&nbsp&nbsp&nbsp
+    <a id="btn1" class="btn btn-success" href="{{url_for('index')}}" role="button"><i class="fa fa-home" style="font-size:24px"></i> Home  </a>
+    <!-- <a id="btn1" class="btn btn-warning btn-sm" href="{{url_for('dashboard')}}" >Dash Board</a>
+    <button id="btn1" type="button" class="btn btn-secondary btn-sm"><i class="fa fa-fw fa-user"></i> {{current_user.name}}</button> -->
+  </div>
+  <br>
+		  <h2>المزارع المسجله بالموقع</h2>
+      <br>
+      <div class="card mb-2" style="max-width: 100%;" id="card1">
+        <div class="row g-0">
+        {% for farm in farms %}
+            <div class="col-md-6">
+                <img src="static/images/Logo1.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                   <button type="button" class="btn btn-secondary btn-lg" id="title1">Farm Name : {{ farm.farm_name }}</button>
+                   <p class="text-left"> Telephone : {{farm.phone}}</p>
+                   <p class="text-left"> E-Mail : {{farm.email}}</p>
+                   <p class="text-left"> Address : {{farm.address2}} # {{farm.address1}}</p>
+                </div>
+            </div>
+       {%endfor%}
+        </div>
+      </div>
+      {% endblock %}
+  </body>
+</html>
